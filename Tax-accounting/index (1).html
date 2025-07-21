@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TaxPro | Professional Tax Planning & Bookkeeping Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#E73137',
+                        secondary: '#1C2752',
+                        accent: '#FDD835',
+                        neutral: '#F8FAFC',
+                        'gray-50': '#F9FAFB',
+                        'gray-900': '#111827',
+                    },
+                    fontFamily: {
+                        sans: ['Roboto', 'system-ui', 'sans-serif'],
+                        serif: ['Merriweather', 'serif'],
+                    },
+                    animation: {
+                        'fade-in-up': 'fadeInUp 0.8s ease-out',
+                        'fade-in-down': 'fadeInDown 0.8s ease-out',
+                        'scale-in': 'scaleIn 0.6s ease-out',
+                        'pulse-slow': 'pulse 3s infinite',
+                        'fade-in': 'fadeIn 0.8s ease-out',
+                        'fade-up': 'fadeUp 0.8s ease-out',
+                        'slide-right': 'slideRight 0.8s ease-out',
+                        'slide-left': 'slideLeft 0.8s ease-out',
+                        'bounce-gentle': 'bounceGentle 2s infinite'
+                    },
+                    keyframes: {
+                        fadeInUp: {
+                            '0%': { opacity: '0', transform: 'translateY(40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        fadeInDown: {
+                            '0%': { opacity: '0', transform: 'translateY(-40px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        scaleIn: {
+                            '0%': { opacity: '0', transform: 'scale(0.9)' },
+                            '100%': { opacity: '1', transform: 'scale(1)' },
+                        },
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        fadeUp: {
+                            '0%': { opacity: '0', transform: 'translateY(20px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0)' },
+                        },
+                        slideRight: {
+                            '0%': { opacity: '0', transform: 'translateX(-30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        slideLeft: {
+                            '0%': { opacity: '0', transform: 'translateX(30px)' },
+                            '100%': { opacity: '1', transform: 'translateX(0)' },
+                        },
+                        bounceGentle: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-5px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Merriweather:wght@300;400;700&display=swap');
+
+        .timeline-line {
+            background: linear-gradient(180deg, #3B82F6 0%, #06B6D4 50%, #10B981 100%);
+        }
+
+        .glass-effect {
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+        }
+
+        .gradient-text {
+            background: linear-gradient(135deg, #3B82F6, #06B6D4);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .card-glow {
+            box-shadow: 0 10px 40px rgba(59, 130, 246, 0.1);
+        }
+
+        .card-glow:hover {
+            box-shadow: 0 20px 60px rgba(59, 130, 246, 0.2);
+        }
+
+        .corporate-gradient {
+            background: linear-gradient(135deg, #1C2752 0%, #2D3748 50%, #1A202C 100%);
+        }
+
+        .accent-gradient {
+            background: linear-gradient(135deg, #E73137 0%, #DC2626 100%);
+        }
+
+        .card-hover {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        }
+
+        .text-balance {
+            text-wrap: balance;
+        }
+
+        .section-divider {
+            background: linear-gradient(90deg, transparent, #E73137, transparent);
+            height: 2px;
+            width: 100px;
+        }
+
+        .professional-shadow {
+            box-shadow: 0 10px 25px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+        }
+
+        .step-number {
+            background: linear-gradient(135deg, #E73137 0%, #DC2626 100%);
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Add these additional classes for the timeline animations */
+        .animate-fade-in {
+            animation: fadeIn 0.8s ease-out forwards;
+        }
+
+        .animate-fade-up {
+            animation: fadeUp 0.8s ease-out forwards;
+        }
+
+        .animate-slide-right {
+            animation: slideRight 0.8s ease-out forwards;
+        }
+
+        .animate-slide-left {
+            animation: slideLeft 0.8s ease-out forwards;
+        }
+
+        .animate-bounce-gentle {
+            animation: bounceGentle 2s infinite;
+        }
+
+        /* Initial states for intersection observer animations */
+        .opacity-0 {
+            opacity: 0;
+        }
+
+        .translate-y-8 {
+            transform: translateY(32px);
+        }
+
+        .translate-y-4 {
+            transform: translateY(16px);
+        }
+
+        .scale-95 {
+            transform: scale(0.95);
+        }
+    </style>
+</head>
+
+<body class="font-sans bg-white text-gray-900">
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 py-4 z-50 bg-white/95 backdrop-blur-sm border-b border-gray-200 "
+        x-data="{ open: false }">
+        <div class=" max-w-[95rem] mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-18">
+                <div class="flex items-center space-x-4">
+                    <div
+                        class="w-12 h-12 accent-gradient rounded-lg flex items-center justify-center professional-shadow">
+                        <i class="fas fa-calculator text-white text-xl"></i>
+                    </div>
+                    <div>
+                        <span class="text-2xl font-bold text-secondary">TaxPro</span>
+                        <div class="text-xs text-gray-500 font-medium">Professional Services</div>
+                    </div>
+                </div>
+
+                <div class="hidden md:flex items-center space-x-8">
+                    <a href="#home"
+                        class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+                        Home
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#services"
+                        class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+                        Services
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#expert"
+                        class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+                        Expert
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#testimonials"
+                        class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+                        Testimonials
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <a href="#contact"
+                        class="text-gray-700 hover:text-primary font-medium transition-colors relative group">
+                        Contact
+                        <span
+                            class="absolute bottom-0 left-0 w-0 h-0.5 bg-primary transition-all group-hover:w-full"></span>
+                    </a>
+                    <button onclick="document.getElementById('cta-section').scrollIntoView({behavior: 'smooth'})"
+                        class="accent-gradient text-white px-6 py-2.5 rounded-lg font-medium hover:shadow-lg transition-all">
+                        Schedule Consultation
+                    </button>
+                </div>
+
+                <button @click="open = !open" class="md:hidden p-2">
+                    <i class="fas fa-bars text-gray-700 text-xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div x-show="open" x-transition class="md:hidden bg-white border-t border-gray-200">
+            <div class="px-4 py-6 space-y-4">
+                <a href="#home" class="block text-gray-700 hover:text-primary font-medium">Home</a>
+                <a href="#services" class="block text-gray-700 hover:text-primary font-medium">Services</a>
+                <a href="#expert" class="block text-gray-700 hover:text-primary font-medium">Expert</a>
+                <a href="#testimonials" class="block text-gray-700 hover:text-primary font-medium">Testimonials</a>
+                <a href="#contact" class="block text-gray-700 hover:text-primary font-medium">Contact</a>
+                <button onclick="document.getElementById('cta-section').scrollIntoView({behavior: 'smooth'})"
+                    class="w-full accent-gradient text-white py-3 rounded-lg font-medium">Schedule Consultation</button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="pt-18 min-h-screen bg-gradient-to-br from-neutral via-gray-50 to-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
+            <div class="grid lg:grid-cols-2 gap-16 items-center min-h-[80vh]">
+                <div class="animate-fade-in-up">
+                    <div
+                        class="inline-flex items-center px-4 py-2 bg-primary/10 rounded-full text-primary text-sm font-semibold mb-8">
+                        <i class="fas fa-award mr-2"></i>
+                        Certified Tax Professionals Since 2010
+                    </div>
+                    <h1 class="text-5xl lg:text-6xl font-bold text-secondary leading-tight mb-6 text-balance">
+                        Strategic Tax Planning for
+                        <span class="text-primary relative">
+                            Business Success
+                            <svg class="absolute -bottom-2 left-0 w-full h-3" viewBox="0 0 300 12" fill="none">
+                                <path d="M0 6C100 2 200 10 300 6" stroke="#E73137" stroke-width="3"
+                                    stroke-linecap="round" />
+                            </svg>
+                        </span>
+                    </h1>
+                    <p class="text-xl text-gray-600 mb-10 leading-relaxed text-balance">
+                        Maximize your profits and minimize your tax burden with our comprehensive financial services.
+                        Trusted by over 1,200 businesses nationwide.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mb-12">
+                        <button onclick="document.getElementById('cta-section').scrollIntoView({behavior: 'smooth'})"
+                            class="accent-gradient text-white px-8 py-4 rounded-lg font-semibold hover:shadow-xl transition-all card-hover">
+                            <i class="fas fa-calendar-check mr-2"></i>
+                            Free Consultation
+                        </button>
+                        <button onclick="document.getElementById('expert').scrollIntoView({behavior: 'smooth'})"
+                            class="border-2 border-gray-300 text-gray-700 px-8 py-4 rounded-lg font-semibold hover:border-primary hover:text-primary transition-all">
+                            <i class="fas fa-user-tie mr-2"></i>
+                            Meet Our Expert
+                        </button>
+                    </div>
+
+                    <!-- Professional Stats -->
+                    <div class="grid grid-cols-3 gap-8 pt-8 border-t border-gray-200">
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary mb-1">$300M+</div>
+                            <div class="text-gray-600 text-sm font-medium">Tax Savings Generated</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary mb-1">1,200+</div>
+                            <div class="text-gray-600 text-sm font-medium">Satisfied Clients</div>
+                        </div>
+                        <div class="text-center">
+                            <div class="text-3xl font-bold text-secondary mb-1">15+</div>
+                            <div class="text-gray-600 text-sm font-medium">Years Experience</div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="relative animate-scale-in">
+                    <div class="relative ">
+                        <img src="https://images.pexels.com/photos/5816298/pexels-photo-5816298.jpeg?auto=compress&cs=tinysrgb"
+                            alt="Professional Tax Planning"
+                            class="rounded-2xl professional-shadow accent-gradient w-full h-96 object-cover">
+                    </div>
+
+                    <!-- Professional Badges -->
+                    <div class="absolute -top-6 -left-6 bg-white card-hover rounded-xl p-4 professional-shadow">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-shield-check text-green-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-secondary">CPA Certified</div>
+                                <div class="text-gray-600 text-sm">Licensed Professionals</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="absolute -bottom-6 -right-6 bg-white card-hover rounded-xl p-4 professional-shadow">
+                        <div class="flex items-center space-x-3">
+                            <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                <i class="fas fa-chart-line text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-secondary">Proven Results</div>
+                                <div class="text-gray-600 text-sm">Average 35% Savings</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section id="services" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <div class="section-divider mx-auto mb-6"></div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-secondary mb-6 text-balance">
+                    Comprehensive Financial Services
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto text-balance">
+                    Professional solutions designed to optimize your business finances and ensure compliance
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Service 1 -->
+                <div class="bg-white rounded-2xl p-8 professional-shadow card-hover border border-gray-100">
+                    <div class="w-16 h-16 accent-gradient rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-file-invoice-dollar text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-secondary mb-4">Tax Planning & Preparation</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Strategic tax planning to minimize your liability while maximizing deductions and credits
+                        available to your business.
+                    </p>
+                    <ul class="space-y-3 text-gray-600 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                            <span>Comprehensive tax strategy development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                            <span>Quarterly tax planning sessions</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                            <span>Business structure optimization</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                            <span>IRS audit protection</span>
+                        </li>
+                    </ul>
+                    <button onclick="document.getElementById('cta-section').scrollIntoView({behavior: 'smooth'})"
+                        class="w-full border-2 border-primary text-primary px-6 py-3 rounded-lg font-semibold hover:bg-primary hover:text-white transition-all">
+                        Learn More
+                    </button>
+                </div>
+
+                <!-- Service 2 -->
+                <div class="bg-white rounded-2xl p-8 professional-shadow card-hover border border-gray-100">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-blue-500 to-blue-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-book text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-secondary mb-4">Bookkeeping & Accounting</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Professional bookkeeping services to maintain accurate financial records and provide clear
+                        business insights.
+                    </p>
+                    <ul class="space-y-3 text-gray-600 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                            <span>Monthly financial reconciliation</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                            <span>Detailed financial reporting</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                            <span>Expense categorization & tracking</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                            <span>QuickBooks setup & training</span>
+                        </li>
+                    </ul>
+                    <button onclick="document.getElementById('cta-section').scrollIntoView({behavior: 'smooth'})"
+                        class="w-full border-2 border-blue-500 text-blue-500 px-6 py-3 rounded-lg font-semibold hover:bg-blue-500 hover:text-white transition-all">
+                        Learn More
+                    </button>
+                </div>
+
+                <!-- Service 3 -->
+                <div class="bg-white rounded-2xl p-8 professional-shadow card-hover border border-gray-100">
+                    <div
+                        class="w-16 h-16 bg-gradient-to-br from-green-500 to-green-600 rounded-xl flex items-center justify-center mb-6">
+                        <i class="fas fa-chart-line text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-secondary mb-4">Business Advisory</h3>
+                    <p class="text-gray-600 mb-6 leading-relaxed">
+                        Strategic financial guidance to help your business grow, improve cash flow, and achieve
+                        long-term success.
+                    </p>
+                    <ul class="space-y-3 text-gray-600 mb-8">
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                            <span>Financial performance analysis</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                            <span>Cash flow management strategies</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                            <span>Business growth planning</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                            <span>Investment & expansion advice</span>
+                        </li>
+                    </ul>
+                    <button onclick="document.getElementById('cta-section').scrollIntoView({behavior: 'smooth'})"
+                        class="w-full border-2 border-green-500 text-green-500 px-6 py-3 rounded-lg font-semibold hover:bg-green-500 hover:text-white transition-all">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Financial Success Timeline Section -->
+    <section class="py-24 relative overflow-hidden" x-data="timelineData()">
+        <!-- Background Elements -->
+        <div class="absolute inset-0 bg-gradient-to-br from-blue-50/50 via-white/30 to-cyan-50/50"></div>
+        <div
+            class="absolute top-20 left-10 w-72 h-72 bg-gradient-to-br from-blue-400/20 to-cyan-400/20 rounded-full blur-3xl">
+        </div>
+        <div
+            class="absolute bottom-20 right-10 w-96 h-96 bg-gradient-to-br from-indigo-400/20 to-purple-400/20 rounded-full blur-3xl">
+        </div>
+
+        <div class="mx-auto px-4 sm:px-6 lg:px-8 relative">
+            <!-- Header -->
+            <div class="text-center mb-20" x-intersect="headerVisible = true">
+                <div class="flex justify-center mb-6" :class="headerVisible ? 'animate-fade-in' : 'opacity-0'">
+                    <div class="w-20 h-1 bg-gradient-to-r from-blue-500 to-cyan-500 rounded-full"></div>
+                </div>
+                <h2 class="text-5xl lg:text-6xl font-bold text-slate-800 mb-6"
+                    :class="headerVisible ? 'animate-fade-up' : 'opacity-0 translate-y-8'">
+                    5 Steps to <span class="gradient-text">Financial Success</span>
+                </h2>
+                <p class="text-xl text-slate-600 max-w-3xl mx-auto leading-relaxed"
+                    :class="headerVisible ? 'animate-fade-up' : 'opacity-0 translate-y-8'"
+                    style="animation-delay: 0.2s;">
+                    Our proven methodology that has helped over 1,200 businesses optimize their finances and achieve
+                    sustainable growth
+                </p>
+            </div>
+
+            <!-- Timeline Container -->
+            <div class="relative max-w-7xl mx-auto">
+                <!-- Vertical Timeline Line -->
+                <div class="absolute left-1/2 transform -translate-x-1/2 w-1 timeline-line rounded-full h-full"
+                    :class="timelineVisible ? 'animate-fade-in' : 'opacity-0'"
+                    style="transition: opacity 1s ease-out; animation-delay: 0.3s;"
+                    x-intersect="timelineVisible = true">
+                </div>
+
+                <!-- Timeline Steps -->
+                <div class="space-y-24">
+                    <template x-for="(step, index) in steps" :key="index">
+                        <div x-intersect="step.visible = true"
+                            :class="(index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse') + ' flex flex-col lg:flex items-center'">
+
+                            <!-- Step Card -->
+                            <div class="w-full lg:w-6/12"
+                                :class="step.visible ? (index % 2 === 0 ? 'animate-slide-right -ml-14' : '-mr-14 animate-slide-left') : 'opacity-0'"
+                                :style="`animation-delay: ${index * 0.2}s`">
+
+                                <div
+                                    class="bg-white/80 backdrop-blur-sm rounded-2xl p-8 card-glow transition-all duration-300">
+                                    <!-- Step Content -->
+                                    <div class="flex items-start space-x-6">
+                                        <div class="flex-shrink-0">
+                                            <div class="w-14 h-14 rounded-xl flex items-center justify-center text-white font-bold text-xl shadow-lg"
+                                                :class="step.bgClass">
+                                                <i :class="step.icon" class="text-xl"></i>
+                                            </div>
+                                        </div>
+                                        <div class="flex-1">
+                                            <div class="text-sm font-bold tracking-wider mb-2" :class="step.textColor"
+                                                x-text="step.label"></div>
+                                            <h3 class="text-2xl font-bold text-slate-800 mb-4" x-text="step.title"></h3>
+                                            <p class="text-slate-600 leading-relaxed mb-6" x-text="step.description">
+                                            </p>
+
+                                            <!-- Features Grid -->
+                                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                                                <template x-for="feature in step.features">
+                                                    <div class="flex items-center space-x-2">
+                                                        <div class="w-2 h-2 rounded-full" :class="step.dotColor"></div>
+                                                        <span class="text-slate-700 text-sm" x-text="feature"></span>
+                                                    </div>
+                                                </template>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Timeline Node - Simplified -->
+                            <div class="flex items-center justify-center my-6 lg:my-0 lg:mx-6 relative z-10">
+                                <div class="w-14 h-14 rounded-full shadow-lg flex items-center justify-center text-white font-bold"
+                                    :class="step.visible ? step.bgClass + ' animate-scale-in' : 'bg-gray-200 opacity-0'"
+                                    :style="`animation-delay: ${index * 0.2 + 0.3}s`">
+                                    <span x-text="index + 1"></span>
+                                </div>
+                            </div>
+
+                            <!-- Spacer for opposite side -->
+                            <div class="hidden lg:block w-5/12"></div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+
+            <!-- Results Summary -->
+            <div class="mt-32" x-intersect="resultsVisible = true">
+                <div class="relative bg-gradient-to-br from-blue-600 via-blue-700 to-indigo-800 rounded-3xl p-12 max-w-5xl mx-auto overflow-hidden"
+                    :class="resultsVisible ? 'animate-scale-in' : 'opacity-0 scale-95'">
+
+                    <!-- Background Pattern -->
+                    <div class="absolute inset-0 opacity-10">
+                        <div
+                            class="absolute top-0 left-0 w-40 h-40 bg-white rounded-full -translate-x-20 -translate-y-20">
+                        </div>
+                        <div
+                            class="absolute bottom-0 right-0 w-60 h-60 bg-white rounded-full translate-x-30 translate-y-30">
+                        </div>
+                    </div>
+
+                    <div class="relative z-10 text-center text-white">
+                        <h3 class="text-4xl font-bold mb-8"
+                            :class="resultsVisible ? 'animate-fade-up' : 'opacity-0 translate-y-4'"
+                            style="animation-delay: 0.2s;">
+                            The Results Speak for Themselves
+                        </h3>
+
+                        <div class="grid md:grid-cols-3 gap-8 mb-10">
+                            <template x-for="(stat, index) in stats" :key="index">
+                                <div class="text-center"
+                                    :class="resultsVisible ? 'animate-fade-up' : 'opacity-0 translate-y-4'"
+                                    :style="`animation-delay: ${0.4 + index * 0.1}s`">
+                                    <div class="text-5xl font-bold mb-3" x-text="stat.value"></div>
+                                    <div class="text-blue-100 text-lg" x-text="stat.label"></div>
+                                </div>
+                            </template>
+                        </div>
+
+                        <button
+                            class="group bg-white text-blue-700 px-10 py-4 rounded-2xl font-bold text-lg transition-all duration-300 hover:bg-blue-50 hover:scale-105 hover:shadow-2xl"
+                            :class="resultsVisible ? 'animate-fade-up' : 'opacity-0 translate-y-4'"
+                            style="animation-delay: 0.8s;"
+                            onclick="document.getElementById('cta-section')?.scrollIntoView({behavior: 'smooth'})">
+                            <i class="fas fa-rocket mr-2 group-hover:animate-bounce-gentle"></i>
+                            Start Your Success Journey
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        function timelineData() {
+            return {
+                headerVisible: true,
+                timelineVisible: true,
+                resultsVisible: true,
+                steps: [
+                    {
+                        visible: true,
+                        label: 'ASSESS',
+                        title: 'Comprehensive Financial Assessment',
+                        description: 'We begin with a thorough analysis of your current financial situation, business structure, and tax obligations. This includes reviewing your income streams, expenses, deductions, and identifying immediate opportunities for optimization.',
+                        icon: 'fas fa-search',
+                        bgClass: 'bg-gradient-to-br from-blue-500 to-blue-600',
+                        textColor: 'text-blue-600',
+                        borderColor: 'border-blue-500',
+                        dotColor: 'bg-blue-500',
+                        features: ['Financial Health Check', 'Tax Liability Review', 'Opportunity Identification']
+                    },
+                    {
+                        visible: true,
+                        label: 'STRATEGIZE',
+                        title: 'Custom Tax Strategy Development',
+                        description: 'Based on your assessment, we develop a personalized tax strategy that aligns with your business goals. This includes entity structure optimization, timing strategies, and long-term planning to maximize your tax efficiency year after year.',
+                        icon: 'fas fa-chess',
+                        bgClass: 'bg-gradient-to-br from-cyan-500 to-cyan-600',
+                        textColor: 'text-cyan-600',
+                        borderColor: 'border-cyan-500',
+                        dotColor: 'bg-cyan-500',
+                        features: ['Strategic Planning', 'Entity Optimization', 'Long-term Roadmap']
+                    },
+                    {
+                        visible: true,
+                        label: 'IMPLEMENT',
+                        title: 'Strategic Implementation & Setup',
+                        description: 'We help you implement the recommended strategies, including setting up proper bookkeeping systems, establishing retirement plans, implementing expense tracking, and ensuring all documentation is properly organized for maximum deduction capture.',
+                        icon: 'fas fa-cogs',
+                        bgClass: 'bg-gradient-to-br from-green-500 to-green-600',
+                        textColor: 'text-green-600',
+                        borderColor: 'border-green-500',
+                        dotColor: 'bg-green-500',
+                        features: ['System Setup', 'Process Implementation', 'Documentation Setup']
+                    },
+                    {
+                        visible: true,
+                        label: 'MONITOR',
+                        title: 'Ongoing Monitoring & Optimization',
+                        description: 'Tax laws and business situations change constantly. We provide ongoing monitoring of your financial situation, quarterly strategy reviews, and proactive adjustments to ensure you\'re always maximizing your tax efficiency and staying compliant.',
+                        icon: 'fas fa-chart-line',
+                        bgClass: 'bg-gradient-to-br from-purple-500 to-purple-600',
+                        textColor: 'text-purple-600',
+                        borderColor: 'border-purple-500',
+                        dotColor: 'bg-purple-500',
+                        features: ['Quarterly Reviews', 'Proactive Adjustments', 'Compliance Monitoring']
+                    },
+                    {
+                        visible: true,
+                        label: 'SCALE',
+                        title: 'Scale & Grow with Confidence',
+                        description: 'As your business grows, we help you scale your tax strategies accordingly. This includes advanced planning for business expansion, succession planning, estate planning, and sophisticated tax strategies that support your long-term wealth building goals.',
+                        icon: 'fas fa-rocket',
+                        bgClass: 'bg-gradient-to-br from-orange-500 to-orange-600',
+                        textColor: 'text-orange-600',
+                        borderColor: 'border-orange-500',
+                        dotColor: 'bg-orange-500',
+                        features: ['Growth Planning', 'Advanced Strategies', 'Wealth Building']
+                    }
+                ],
+                stats: [
+                    { value: '35%', label: 'Average Tax Savings' },
+                    { value: '$300M+', label: 'Total Savings Generated' },
+                    { value: '98%', label: 'Client Satisfaction Rate' }
+                ]
+            }
+        }
+    </script>
+
+    <!-- Client Success Stories (Testimonials) -->
+    <section id="testimonials" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-20">
+                <div class="section-divider mx-auto mb-6"></div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-secondary mb-6">
+                    Client Success Stories
+                </h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Real results from real businesses. See how our strategic tax planning has transformed our clients'
+                    financial futures.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-3 gap-8 mb-16">
+                <!-- Testimonial 1 -->
+                <div class="bg-white rounded-2xl p-8 professional-shadow card-hover">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.pexels.com/photos/2379004/pexels-photo-2379004.jpeg"
+                            alt="Michael Rodriguez" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <div class="font-bold text-secondary text-lg">Michael Rodriguez</div>
+                            <div class="text-gray-600">CEO, TechFlow Solutions</div>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-600 leading-relaxed mb-6">
+                        "Sarah and her team saved our company over $180,000 in taxes last year alone. Their strategic
+                        approach to business structure optimization was a game-changer. We went from paying excessive
+                        taxes to having a clear, compliant strategy that supports our growth."
+                    </blockquote>
+                    <div class="bg-primary/10 rounded-lg p-4">
+                        <div class="text-primary font-bold text-2xl">$180,000</div>
+                        <div class="text-gray-600 text-sm">Annual Tax Savings</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 2 -->
+                <div class="bg-white rounded-2xl p-8 professional-shadow card-hover">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.pexels.com/photos/3785079/pexels-photo-3785079.jpeg"
+                            alt="Jennifer Chen" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <div class="font-bold text-secondary text-lg">Jennifer Chen</div>
+                            <div class="text-gray-600">Founder, Bloom Marketing Agency</div>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-600 leading-relaxed mb-6">
+                        "As a creative agency owner, I was drowning in financial paperwork. TaxPro not only organized
+                        our books but implemented systems that gave me real-time insights into our profitability. Their
+                        proactive tax planning has been invaluable."
+                    </blockquote>
+                    <div class="bg-blue-100 rounded-lg p-4">
+                        <div class="text-blue-600 font-bold text-2xl">40%</div>
+                        <div class="text-gray-600 text-sm">Reduction in Tax Liability</div>
+                    </div>
+                </div>
+
+                <!-- Testimonial 3 -->
+                <div class="bg-white rounded-2xl p-8 professional-shadow card-hover">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.pexels.com/photos/1043471/pexels-photo-1043471.jpeg"
+                            alt="David Thompson" class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <div class="font-bold text-secondary text-lg">David Thompson</div>
+                            <div class="text-gray-600">Owner, Thompson Construction</div>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-600 leading-relaxed mb-6">
+                        "I was skeptical about hiring a tax professional, thinking I could handle it myself. Working
+                        with TaxPro was the best business decision I've made. They found deductions I never knew existed
+                        and restructured my business for maximum efficiency."
+                    </blockquote>
+                    <div class="bg-green-100 rounded-lg p-4">
+                        <div class="text-green-600 font-bold text-2xl">$95,000</div>
+                        <div class="text-gray-600 text-sm">First Year Savings</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Additional Testimonials Row -->
+            <div class="grid lg:grid-cols-2 gap-8 mb-16">
+                <!-- Testimonial 4 -->
+                <div class="bg-white rounded-2xl p-8 professional-shadow card-hover">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.pexels.com/photos/3760263/pexels-photo-3760263.jpeg" alt="Lisa Park"
+                            class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <div class="font-bold text-secondary text-lg">Lisa Park</div>
+                            <div class="text-gray-600">Freelance Consultant</div>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-600 leading-relaxed">
+                        "As a freelancer, I was paying way too much in taxes and had no idea how to properly structure
+                        my business. Sarah helped me set up an S-Corp, implement a retirement plan, and create systems
+                        that save me thousands every year. The peace of mind alone is worth it."
+                    </blockquote>
+                </div>
+
+                <!-- Testimonial 5 -->
+                <div class="bg-white rounded-2xl p-8 professional-shadow card-hover">
+                    <div class="flex items-center mb-6">
+                        <img src="https://images.pexels.com/photos/2182970/pexels-photo-2182970.jpeg" alt="Robert Kim"
+                            class="w-16 h-16 rounded-full object-cover mr-4">
+                        <div>
+                            <div class="font-bold text-secondary text-lg">Robert Kim</div>
+                            <div class="text-gray-600">E-commerce Store Owner</div>
+                            <div class="flex text-yellow-400 mt-1">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                    </div>
+                    <blockquote class="text-gray-600 leading-relaxed">
+                        "Running an e-commerce business involves complex inventory and sales tax issues. TaxPro handles
+                        everything seamlessly - from quarterly estimates to year-end planning. Their expertise in online
+                        business taxation is unmatched."
+                    </blockquote>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- Meet Your Expert Section -->
+    <section id="expert" class="py-24 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="section-divider mx-auto mb-6"></div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-secondary mb-6">Meet Your Expert</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Work directly with industry-leading tax professionals who understand your business
+                </p>
+            </div>
+
+            <div class="bg-gray-50 rounded-2xl professional-shadow overflow-hidden max-w-6xl mx-auto">
+                <div class="grid lg:grid-cols-2">
+                    <div class="relative">
+                        <img src="https://images.pexels.com/photos/5669788/pexels-photo-5669788.jpeg"
+                            alt="Sarah Mitchell, CPA - Lead Tax Strategist" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+                        <div class="absolute bottom-6 left-6 text-white">
+                            <div class="text-2xl font-bold mb-2">Sarah Mitchell, CPA</div>
+                            <div class="text-lg opacity-90">Lead Tax Strategist & Founder</div>
+                        </div>
+                    </div>
+
+                    <div class="p-8 lg:p-12">
+                        <div class="mb-8">
+                            <h3 class="text-3xl font-bold text-secondary mb-4">15+ Years of Tax Excellence</h3>
+                            <p class="text-gray-600 leading-relaxed mb-6">
+                                Sarah Mitchell brings over 15 years of specialized experience in tax planning and
+                                business advisory services.
+                                As a Certified Public Accountant and the founder of TaxPro, she has helped over 1,200
+                                businesses
+                                save millions in taxes while ensuring complete compliance.
+                            </p>
+                            <p class="text-gray-600 leading-relaxed">
+                                Her expertise spans across multiple industries, from tech startups to established
+                                enterprises,
+                                providing strategic tax solutions that drive business growth and profitability.
+                            </p>
+                        </div>
+
+                        <!-- Credentials -->
+                        <div class="grid grid-cols-2 gap-6 mb-8">
+                            <div class="bg-white rounded-lg p-4 professional-shadow">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-primary/10 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-graduation-cap text-primary"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-secondary">CPA License</div>
+                                        <div class="text-gray-600 text-sm">State Certified</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-4 professional-shadow">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-university text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-secondary">MBA Finance</div>
+                                        <div class="text-gray-600 text-sm">Stanford University</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-4 professional-shadow">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-award text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-secondary">IRS Enrolled Agent</div>
+                                        <div class="text-gray-600 text-sm">Federal License</div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="bg-white rounded-lg p-4 professional-shadow">
+                                <div class="flex items-center space-x-3">
+                                    <div class="w-10 h-10 bg-purple-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-star text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-secondary">Top 40 Under 40</div>
+                                        <div class="text-gray-600 text-sm">Accounting Today</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Specializations -->
+                        <div class="mb-8">
+                            <h4 class="text-xl font-bold text-secondary mb-4">Areas of Expertise</h4>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-primary/10 text-primary rounded-full text-sm font-medium">Tax
+                                    Strategy</span>
+                                <span
+                                    class="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm font-medium">Business
+                                    Structure</span>
+                                <span
+                                    class="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm font-medium">Financial
+                                    Planning</span>
+                                <span
+                                    class="px-3 py-1 bg-purple-100 text-purple-600 rounded-full text-sm font-medium">IRS
+                                    Representation</span>
+                                <span
+                                    class="px-3 py-1 bg-orange-100 text-orange-600 rounded-full text-sm font-medium">Audit
+                                    Defense</span>
+                                <span
+                                    class="px-3 py-1 bg-indigo-100 text-indigo-600 rounded-full text-sm font-medium">Estate
+                                    Planning</span>
+                            </div>
+                        </div>
+
+                        <!-- CTA -->
+                        <button onclick="document.getElementById('cta-section').scrollIntoView({behavior: 'smooth'})"
+                            class="w-full accent-gradient text-white py-4 rounded-lg font-semibold hover:shadow-lg transition-all">
+                            <i class="fas fa-calendar-check mr-2"></i>
+                            Schedule a Personal Consultation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Main CTA Section -->
+    <section id="cta-section" class="py-24 bg-gradient-to-br from-secondary via-gray-800 to-secondary">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <div class="mb-12">
+                <div
+                    class="inline-flex items-center px-4 py-2 bg-white/10 rounded-full text-white text-sm font-semibold mb-8">
+                    <i class="fas fa-clock mr-2"></i>
+                    Limited Time: Free Tax Strategy Session
+                </div>
+                <h2 class="text-4xl lg:text-6xl font-bold text-white mb-6 text-balance">
+                    Ready to Transform Your
+                    <span class="text-primary">Financial Future?</span>
+                </h2>
+                <p class="text-xl text-gray-300 max-w-3xl mx-auto mb-12 text-balance">
+                    Join over 1,200 successful businesses who have optimized their taxes and accelerated their growth
+                    with our proven strategies.
+                </p>
+            </div>
+
+            <!-- CTA Benefits -->
+            <div class="grid md:grid-cols-3 gap-8 mb-16">
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-white">
+                    <div class="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-gift text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Free 30-Minute Consultation</h3>
+                    <p class="text-gray-300">Comprehensive tax assessment and strategy discussion - no obligation</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-white">
+                    <div class="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-calculator text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Instant Savings Estimate</h3>
+                    <p class="text-gray-300">Get a preliminary assessment of your potential tax savings</p>
+                </div>
+
+                <div class="bg-white/10 backdrop-blur-sm rounded-2xl p-6 text-white">
+                    <div class="w-16 h-16 bg-primary/20 rounded-xl flex items-center justify-center mx-auto mb-4">
+                        <i class="fas fa-shield-check text-primary text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3">Risk-Free Guarantee</h3>
+                    <p class="text-gray-300">If we don't save you money, you don't pay - it's that simple</p>
+                </div>
+            </div>
+
+            <!-- Main CTA Buttons -->
+            <div class="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
+                <button onclick="document.getElementById('assessment').scrollIntoView({behavior: 'smooth'})"
+                    class="bg-primary hover:bg-red-600 text-white px-10 py-4 rounded-lg font-bold text-lg transition-all card-hover animate-pulse-slow">
+                    <i class="fas fa-calendar-check mr-3"></i>
+                    Schedule Free Consultation
+                </button>
+                <button onclick="window.open('tel:+1-555-TAX-PROS', '_self')"
+                    class="border-2 border-white text-white hover:bg-white hover:text-secondary px-10 py-4 rounded-lg font-bold text-lg transition-all">
+                    <i class="fas fa-phone mr-3"></i>
+                    Call Now: (555) TAX-PROS
+                </button>
+            </div>
+
+            <!-- Trust Indicators -->
+            <div class="border-t border-white/20 pt-12">
+                <div class="grid md:grid-cols-4 gap-8 text-center">
+                    <div>
+                        <div class="text-3xl font-bold text-primary mb-2">$300M+</div>
+                        <div class="text-gray-300">Tax Savings Generated</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-primary mb-2">1,200+</div>
+                        <div class="text-gray-300">Satisfied Clients</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-primary mb-2">4.9/5</div>
+                        <div class="text-gray-300">Client Rating</div>
+                    </div>
+                    <div>
+                        <div class="text-3xl font-bold text-primary mb-2">15+</div>
+                        <div class="text-gray-300">Years Experience</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Business Assessment Form -->
+    <section id="assessment" class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="section-divider mx-auto mb-6"></div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-secondary mb-6">Tell Us About Your Business</h2>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                    Help us understand your business needs to provide personalized tax strategies and recommendations
+                </p>
+            </div>
+
+            <div x-data="{ currentStep: 1, totalSteps: 4, formData: {} }"
+                class="bg-white rounded-2xl professional-shadow p-8 lg:p-12">
+                <!-- Progress Indicator -->
+                <div class="mb-12">
+                    <div class="flex justify-between text-sm font-semibold text-gray-500 mb-4">
+                        <span :class="currentStep >= 1 ? 'text-primary' : ''">Business Type</span>
+                        <span :class="currentStep >= 2 ? 'text-primary' : ''">Financial Details</span>
+                        <span :class="currentStep >= 3 ? 'text-primary' : ''">Goals & Challenges</span>
+                        <span :class="currentStep >= 4 ? 'text-primary' : ''">Contact Information</span>
+                    </div>
+                    <div class="w-full bg-gray-200 rounded-full h-2">
+                        <div class="accent-gradient h-2 rounded-full transition-all duration-500"
+                            :style="`width: ${(currentStep / totalSteps) * 100}%`"></div>
+                    </div>
+                    <div class="text-center mt-4 text-gray-600">
+                        Step <span x-text="currentStep"></span> of <span x-text="totalSteps"></span>
+                    </div>
+                </div>
+
+                <!-- Step 1: Business Type -->
+                <div x-show="currentStep === 1" x-transition>
+                    <h3 class="text-2xl font-bold text-secondary mb-8 text-center">What type of business do you operate?
+                    </h3>
+                    <div class="grid md:grid-cols-2 gap-6 mb-12">
+                        <label class="cursor-pointer group">
+                            <input type="radio" x-model="formData.businessType" value="agency" class="sr-only">
+                            <div class="border-2 rounded-xl p-6 transition-all group-hover:border-primary/50"
+                                :class="formData.businessType === 'agency' ? 'border-primary bg-primary/5' : 'border-gray-200'">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-users text-blue-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-secondary text-lg">Agency/Consultancy</div>
+                                        <div class="text-gray-600">Marketing, design, development, consulting services
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer group">
+                            <input type="radio" x-model="formData.businessType" value="ecommerce" class="sr-only">
+                            <div class="border-2 rounded-xl p-6 transition-all group-hover:border-primary/50"
+                                :class="formData.businessType === 'ecommerce' ? 'border-primary bg-primary/5' : 'border-gray-200'">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-shopping-cart text-green-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-secondary text-lg">E-commerce/Retail</div>
+                                        <div class="text-gray-600">Online stores, physical retail, product sales</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer group">
+                            <input type="radio" x-model="formData.businessType" value="professional" class="sr-only">
+                            <div class="border-2 rounded-xl p-6 transition-all group-hover:border-primary/50"
+                                :class="formData.businessType === 'professional' ? 'border-primary bg-primary/5' : 'border-gray-200'">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-purple-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-briefcase text-purple-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-secondary text-lg">Professional Services</div>
+                                        <div class="text-gray-600">Legal, medical, accounting, real estate</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer group">
+                            <input type="radio" x-model="formData.businessType" value="tech" class="sr-only">
+                            <div class="border-2 rounded-xl p-6 transition-all group-hover:border-primary/50"
+                                :class="formData.businessType === 'tech' ? 'border-primary bg-primary/5' : 'border-gray-200'">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-indigo-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-laptop-code text-indigo-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-secondary text-lg">Technology/SaaS</div>
+                                        <div class="text-gray-600">Software, apps, tech startups, SaaS platforms</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer group">
+                            <input type="radio" x-model="formData.businessType" value="freelancer" class="sr-only">
+                            <div class="border-2 rounded-xl p-6 transition-all group-hover:border-primary/50"
+                                :class="formData.businessType === 'freelancer' ? 'border-primary bg-primary/5' : 'border-gray-200'">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-user text-orange-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-secondary text-lg">Freelancer/Contractor</div>
+                                        <div class="text-gray-600">Independent contractor, gig work, 1099 income</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+
+                        <label class="cursor-pointer group">
+                            <input type="radio" x-model="formData.businessType" value="other" class="sr-only">
+                            <div class="border-2 rounded-xl p-6 transition-all group-hover:border-primary/50"
+                                :class="formData.businessType === 'other' ? 'border-primary bg-primary/5' : 'border-gray-200'">
+                                <div class="flex items-center space-x-4">
+                                    <div class="w-12 h-12 bg-gray-100 rounded-lg flex items-center justify-center">
+                                        <i class="fas fa-ellipsis-h text-gray-600"></i>
+                                    </div>
+                                    <div>
+                                        <div class="font-semibold text-secondary text-lg">Other</div>
+                                        <div class="text-gray-600">Manufacturing, hospitality, or other industry</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="flex justify-end">
+                        <button @click="currentStep = 2" :disabled="!formData.businessType"
+                            class="accent-gradient text-white px-8 py-3 rounded-lg font-semibold disabled:opacity-50 disabled:cursor-not-allowed hover:shadow-lg transition-all">
+                            Continue <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 2: Financial Details -->
+                <div x-show="currentStep === 2" x-transition>
+                    <h3 class="text-2xl font-bold text-secondary mb-8 text-center">Tell us about your business finances
+                    </h3>
+                    <div class="space-y-6 mb-12">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-3">Annual Revenue Range</label>
+                            <select x-model="formData.revenue"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="">Select revenue range</option>
+                                <option value="under-50k">Under $50,000</option>
+                                <option value="50k-100k">$50,000 - $100,000</option>
+                                <option value="100k-250k">$100,000 - $250,000</option>
+                                <option value="250k-500k">$250,000 - $500,000</option>
+                                <option value="500k-1m">$500,000 - $1,000,000</option>
+                                <option value="over-1m">Over $1,000,000</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-3">Business Structure</label>
+                            <select x-model="formData.structure"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="">Select business structure</option>
+                                <option value="sole-proprietorship">Sole Proprietorship</option>
+                                <option value="llc">LLC</option>
+                                <option value="s-corp">S-Corporation</option>
+                                <option value="c-corp">C-Corporation</option>
+                                <option value="partnership">Partnership</option>
+                                <option value="unsure">Not sure / Need guidance</option>
+                            </select>
+                        </div>
+
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-3">Current Tax Situation</label>
+                            <textarea x-model="formData.taxSituation" rows="4"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent"
+                                placeholder="Describe your current tax challenges, concerns, or what you'd like to improve..."></textarea>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <button @click="currentStep = 1"
+                            class="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-gray-400 transition-all">
+                            <i class="fas fa-arrow-left mr-2"></i> Back
+                        </button>
+                        <button @click="currentStep = 3"
+                            class="accent-gradient text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                            Continue <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 3: Goals & Challenges -->
+                <div x-show="currentStep === 3" x-transition>
+                    <h3 class="text-2xl font-bold text-secondary mb-8 text-center">What are your primary goals?</h3>
+                    <div class="space-y-4 mb-12">
+                        <label
+                            class="flex items-start space-x-3 cursor-pointer p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" x-model="formData.goals" value="reduce-taxes"
+                                class="mt-1 rounded border-gray-300 text-primary focus:ring-primary">
+                            <div>
+                                <div class="font-semibold text-secondary">Reduce Tax Liability</div>
+                                <div class="text-gray-600 text-sm">Minimize the amount of taxes owed through strategic
+                                    planning</div>
+                            </div>
+                        </label>
+
+                        <label
+                            class="flex items-start space-x-3 cursor-pointer p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" x-model="formData.goals" value="organize-books"
+                                class="mt-1 rounded border-gray-300 text-primary focus:ring-primary">
+                            <div>
+                                <div class="font-semibold text-secondary">Organize Financial Records</div>
+                                <div class="text-gray-600 text-sm">Get better bookkeeping and financial organization
+                                </div>
+                            </div>
+                        </label>
+
+                        <label
+                            class="flex items-start space-x-3 cursor-pointer p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" x-model="formData.goals" value="business-structure"
+                                class="mt-1 rounded border-gray-300 text-primary focus:ring-primary">
+                            <div>
+                                <div class="font-semibold text-secondary">Optimize Business Structure</div>
+                                <div class="text-gray-600 text-sm">Ensure the most tax-efficient business entity
+                                    structure</div>
+                            </div>
+                        </label>
+
+                        <label
+                            class="flex items-start space-x-3 cursor-pointer p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" x-model="formData.goals" value="financial-planning"
+                                class="mt-1 rounded border-gray-300 text-primary focus:ring-primary">
+                            <div>
+                                <div class="font-semibold text-secondary">Financial Planning & Growth</div>
+                                <div class="text-gray-600 text-sm">Strategic advice for business growth and financial
+                                    management</div>
+                            </div>
+                        </label>
+
+                        <label
+                            class="flex items-start space-x-3 cursor-pointer p-4 rounded-lg hover:bg-gray-50 transition-colors">
+                            <input type="checkbox" x-model="formData.goals" value="compliance"
+                                class="mt-1 rounded border-gray-300 text-primary focus:ring-primary">
+                            <div>
+                                <div class="font-semibold text-secondary">Ensure Compliance</div>
+                                <div class="text-gray-600 text-sm">Stay compliant with tax laws and avoid penalties
+                                </div>
+                            </div>
+                        </label>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <button @click="currentStep = 2"
+                            class="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-gray-400 transition-all">
+                            <i class="fas fa-arrow-left mr-2"></i> Back
+                        </button>
+                        <button @click="currentStep = 4"
+                            class="accent-gradient text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                            Continue <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Step 4: Contact Information -->
+                <div x-show="currentStep === 4" x-transition>
+                    <h3 class="text-2xl font-bold text-secondary mb-8 text-center">Let's schedule your consultation</h3>
+                    <div class="grid md:grid-cols-2 gap-6 mb-12">
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">First Name *</label>
+                            <input type="text" x-model="formData.firstName" required
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Last Name *</label>
+                            <input type="text" x-model="formData.lastName" required
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Email Address *</label>
+                            <input type="email" x-model="formData.email" required
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Phone Number *</label>
+                            <input type="tel" x-model="formData.phone" required
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Business Name</label>
+                            <input type="text" x-model="formData.businessName"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div class="md:col-span-2">
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Preferred Consultation
+                                Time</label>
+                            <select x-model="formData.preferredTime"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option value="">Select preferred time</option>
+                                <option value="morning">Morning (9 AM - 12 PM)</option>
+                                <option value="afternoon">Afternoon (12 PM - 5 PM)</option>
+                                <option value="evening">Evening (5 PM - 8 PM)</option>
+                                <option value="flexible">I'm flexible</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="bg-gray-50 rounded-lg p-6 mb-8">
+                        <div class="flex items-start space-x-3">
+                            <i class="fas fa-info-circle text-primary mt-1"></i>
+                            <div class="text-sm text-gray-600">
+                                <strong>What happens next?</strong> Our team will review your information and contact
+                                you within 24 hours to schedule your free 30-minute consultation. We'll discuss your
+                                specific needs and how we can help optimize your tax strategy.
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="flex justify-between">
+                        <button @click="currentStep = 3"
+                            class="border-2 border-gray-300 text-gray-700 px-8 py-3 rounded-lg font-semibold hover:border-gray-400 transition-all">
+                            <i class="fas fa-arrow-left mr-2"></i> Back
+                        </button>
+                        <button
+                            class="accent-gradient text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                            <i class="fas fa-calendar-check mr-2"></i> Schedule Consultation
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="section-divider mx-auto mb-6"></div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-secondary mb-6">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-xl text-gray-600">
+                    Get answers to the most common questions about our tax planning and bookkeeping services
+                </p>
+            </div>
+
+            <div x-data="{ openFaq: null }" class="space-y-4">
+                <!-- FAQ 1 -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden professional-shadow">
+                    <button @click="openFaq = openFaq === 1 ? null : 1"
+                        class="w-full p-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg font-bold text-secondary">How much can I expect to save on taxes?</h3>
+                        <i class="fas fa-chevron-down transition-transform"
+                            :class="openFaq === 1 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="openFaq === 1" x-transition class="px-6 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            Our clients typically save 25-40% on their annual tax liability. The exact amount depends on
+                            your current situation,
+                            business structure, and income level. During your free consultation, we'll provide a
+                            preliminary assessment of
+                            potential savings specific to your business. Many clients save enough in their first year to
+                            cover several years
+                            of our services.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 2 -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden professional-shadow">
+                    <button @click="openFaq = openFaq === 2 ? null : 2"
+                        class="w-full p-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg font-bold text-secondary">What's included in your bookkeeping services?</h3>
+                        <i class="fas fa-chevron-down transition-transform"
+                            :class="openFaq === 2 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="openFaq === 2" x-transition class="px-6 pb-6">
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            Our comprehensive bookkeeping services include:
+                        </p>
+                        <ul class="text-gray-600 space-y-2">
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                                <span>Monthly bank and credit card reconciliation</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                                <span>Expense categorization and tracking</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                                <span>Financial statement preparation (P&L, Balance Sheet)</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                                <span>Accounts payable and receivable management</span>
+                            </li>
+                            <li class="flex items-start">
+                                <i class="fas fa-check-circle text-primary mr-3 mt-1"></i>
+                                <span>Quarterly financial reviews and tax planning</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- FAQ 3 -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden professional-shadow">
+                    <button @click="openFaq = openFaq === 3 ? null : 3"
+                        class="w-full p-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg font-bold text-secondary">Do you work with businesses in my industry?</h3>
+                        <i class="fas fa-chevron-down transition-transform"
+                            :class="openFaq === 3 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="openFaq === 3" x-transition class="px-6 pb-6">
+                        <p class="text-gray-600 leading-relaxed mb-4">
+                            We work with businesses across all industries, including:
+                        </p>
+                        <div class="grid md:grid-cols-2 gap-4 text-gray-600">
+                            <div>
+                                <ul class="space-y-2">
+                                    <li>• Technology & SaaS companies</li>
+                                    <li>• E-commerce & retail businesses</li>
+                                    <li>• Professional services firms</li>
+                                    <li>• Marketing & creative agencies</li>
+                                    <li>• Real estate professionals</li>
+                                </ul>
+                            </div>
+                            <div>
+                                <ul class="space-y-2">
+                                    <li>• Healthcare practitioners</li>
+                                    <li>• Construction & contractors</li>
+                                    <li>• Restaurants & hospitality</li>
+                                    <li>• Freelancers & consultants</li>
+                                    <li>• Manufacturing companies</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <p class="text-gray-600 leading-relaxed mt-4">
+                            Our team has specialized knowledge in industry-specific tax regulations and deductions.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 4 -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden professional-shadow">
+                    <button @click="openFaq = openFaq === 4 ? null : 4"
+                        class="w-full p-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg font-bold text-secondary">How quickly can you start helping my business?</h3>
+                        <i class="fas fa-chevron-down transition-transform"
+                            :class="openFaq === 4 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="openFaq === 4" x-transition class="px-6 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            We can typically begin working with new clients within 1-2 weeks of your initial
+                            consultation.
+                            Our onboarding process includes a comprehensive financial assessment, strategy development,
+                            and
+                            system setup. For urgent tax situations or approaching deadlines, we offer expedited
+                            onboarding
+                            to ensure you don't miss critical opportunities or deadlines.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 5 -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden professional-shadow">
+                    <button @click="openFaq = openFaq === 5 ? null : 5"
+                        class="w-full p-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg font-bold text-secondary">What if I get audited by the IRS?</h3>
+                        <i class="fas fa-chevron-down transition-transform"
+                            :class="openFaq === 5 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="openFaq === 5" x-transition class="px-6 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            All our clients receive complimentary audit protection and representation. If you're
+                            selected for an audit,
+                            we'll handle all communications with the IRS on your behalf. Our team has extensive
+                            experience with IRS
+                            procedures and will work to resolve any issues quickly and favorably. We maintain detailed
+                            documentation
+                            for all our clients, which significantly reduces audit risk and ensures smooth resolution if
+                            one occurs.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 6 -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden professional-shadow">
+                    <button @click="openFaq = openFaq === 6 ? null : 6"
+                        class="w-full p-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg font-bold text-secondary">What are your service fees?</h3>
+                        <i class="fas fa-chevron-down transition-transform"
+                            :class="openFaq === 6 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="openFaq === 6" x-transition class="px-6 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            Our fees are customized based on your business size, complexity, and service needs. We offer
+                            transparent,
+                            fixed-fee pricing with no hidden costs. Most clients find that our services pay for
+                            themselves many times
+                            over through tax savings and improved financial efficiency. During your free consultation,
+                            we'll provide
+                            a detailed proposal with clear pricing for all recommended services.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- FAQ 7 -->
+                <div class="bg-gray-50 rounded-2xl overflow-hidden professional-shadow">
+                    <button @click="openFaq = openFaq === 7 ? null : 7"
+                        class="w-full p-6 text-left flex justify-between items-center hover:bg-gray-100 transition-colors">
+                        <h3 class="text-lg font-bold text-secondary">Do you offer virtual services?</h3>
+                        <i class="fas fa-chevron-down transition-transform"
+                            :class="openFaq === 7 ? 'rotate-180' : ''"></i>
+                    </button>
+                    <div x-show="openFaq === 7" x-transition class="px-6 pb-6">
+                        <p class="text-gray-600 leading-relaxed">
+                            Yes! We provide comprehensive virtual services to clients nationwide. Our cloud-based
+                            systems allow us to
+                            work seamlessly with businesses regardless of location. We use secure document portals,
+                            video conferencing,
+                            and digital collaboration tools to provide the same high-quality service as our local
+                            clients. Many of our
+                            clients prefer the convenience and efficiency of our virtual service model.
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Still Have Questions CTA -->
+            <div class="text-center mt-16">
+                <div class="bg-gray-50 rounded-2xl p-8 professional-shadow">
+                    <h3 class="text-2xl font-bold text-secondary mb-4">Still Have Questions?</h3>
+                    <p class="text-gray-600 mb-6">
+                        Our team is here to help. Schedule a free consultation to get personalized answers to your
+                        specific situation.
+                    </p>
+                    <button onclick="document.getElementById('cta-section').scrollIntoView({behavior: 'smooth'})"
+                        class="accent-gradient text-white px-8 py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                        <i class="fas fa-phone mr-2"></i>
+                        Schedule Free Consultation
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-24 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <div class="section-divider mx-auto mb-6"></div>
+                <h2 class="text-4xl lg:text-5xl font-bold text-secondary mb-6">Get In Touch</h2>
+                <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+                    Ready to optimize your taxes and grow your business? Contact us today for your free consultation.
+                </p>
+            </div>
+
+            <div class="grid lg:grid-cols-2 gap-16">
+                <!-- Contact Information -->
+                <div>
+                    <h3 class="text-2xl font-bold text-secondary mb-8">Contact Information</h3>
+
+                    <div class="space-y-6 mb-12">
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-phone text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-secondary">Phone</div>
+                                <div class="text-gray-600">(555) TAX-PROS</div>
+                                <div class="text-gray-600">(555) 829-7767</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-envelope text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-secondary">Email</div>
+                                <div class="text-gray-600">info@taxpro.com</div>
+                                <div class="text-gray-600">sarah@taxpro.com</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-map-marker-alt text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-secondary">Office</div>
+                                <div class="text-gray-600">123 Business Center Drive</div>
+                                <div class="text-gray-600">Suite 200, Financial District</div>
+                                <div class="text-gray-600">New York, NY 10001</div>
+                            </div>
+                        </div>
+
+                        <div class="flex items-start space-x-4">
+                            <div
+                                class="w-12 h-12 bg-primary/10 rounded-lg flex items-center justify-center flex-shrink-0">
+                                <i class="fas fa-clock text-primary"></i>
+                            </div>
+                            <div>
+                                <div class="font-semibold text-secondary">Business Hours</div>
+                                <div class="text-gray-600">Monday - Friday: 9:00 AM - 6:00 PM</div>
+                                <div class="text-gray-600">Saturday: 10:00 AM - 2:00 PM</div>
+                                <div class="text-gray-600">Sunday: By Appointment</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Social Links -->
+                    <div>
+                        <h4 class="font-semibold text-secondary mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#"
+                                class="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white hover:bg-blue-700 transition-colors">
+                                <i class="fab fa-linkedin"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-blue-500 rounded-lg flex items-center justify-center text-white hover:bg-blue-600 transition-colors">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                            <a href="#"
+                                class="w-10 h-10 bg-blue-800 rounded-lg flex items-center justify-center text-white hover:bg-blue-900 transition-colors">
+                                <i class="fab fa-facebook"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Quick Contact Form -->
+                <div class="bg-white rounded-2xl p-8 professional-shadow">
+                    <h3 class="text-2xl font-bold text-secondary mb-6">Quick Contact</h3>
+                    <form class="space-y-6">
+                        <div class="grid md:grid-cols-2 gap-6">
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Name</label>
+                                <input type="text"
+                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                            <div>
+                                <label class="block text-sm font-semibold text-gray-700 mb-2">Email</label>
+                                <input type="email"
+                                    class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent">
+                            </div>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Phone</label>
+                            <input type="tel"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Subject</label>
+                            <select
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent">
+                                <option>Tax Planning Consultation</option>
+                                <option>Bookkeeping Services</option>
+                                <option>Business Advisory</option>
+                                <option>General Inquiry</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">Message</label>
+                            <textarea rows="4"
+                                class="w-full border border-gray-300 rounded-lg px-4 py-3 focus:ring-2 focus:ring-primary focus:border-transparent"
+                                placeholder="Tell us about your business and how we can help..."></textarea>
+                        </div>
+                        <button type="submit"
+                            class="w-full accent-gradient text-white py-3 rounded-lg font-semibold hover:shadow-lg transition-all">
+                            <i class="fas fa-paper-plane mr-2"></i>
+                            Send Message
+                        </button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="corporate-gradient text-white py-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid lg:grid-cols-4 gap-8 mb-12">
+                <!-- Company Info -->
+                <div class="lg:col-span-2">
+                    <div class="flex items-center space-x-4 mb-6">
+                        <div class="w-12 h-12 accent-gradient rounded-lg flex items-center justify-center">
+                            <i class="fas fa-calculator text-white text-xl"></i>
+                        </div>
+                        <div>
+                            <span class="text-2xl font-bold">TaxPro</span>
+                            <div class="text-sm text-gray-300">Professional Services</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 leading-relaxed mb-6 max-w-md">
+                        Strategic tax planning and comprehensive financial services for businesses nationwide.
+                        Helping entrepreneurs and companies optimize their finances since 2010.
+                    </p>
+                    <div class="flex space-x-4">
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fab fa-linkedin"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#"
+                            class="w-10 h-10 bg-white/10 rounded-lg flex items-center justify-center hover:bg-white/20 transition-colors">
+                            <i class="fab fa-facebook"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Services -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Services</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#" class="hover:text-white transition-colors">Tax Planning</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Tax Preparation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Bookkeeping</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Business Advisory</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">IRS Representation</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Financial Planning</a></li>
+                    </ul>
+                </div>
+
+                <!-- Quick Links -->
+                <div>
+                    <h4 class="text-lg font-bold mb-6">Quick Links</h4>
+                    <ul class="space-y-3 text-gray-300">
+                        <li><a href="#home" class="hover:text-white transition-colors">Home</a></li>
+                        <li><a href="#services" class="hover:text-white transition-colors">Services</a></li>
+                        <li><a href="#expert" class="hover:text-white transition-colors">About</a></li>
+                        <li><a href="#testimonials" class="hover:text-white transition-colors">Testimonials</a></li>
+                        <li><a href="#contact" class="hover:text-white transition-colors">Contact</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Privacy Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-white/20 pt-8 flex flex-col md:flex-row justify-between items-center">
+                <div class="text-gray-300 text-sm mb-4 md:mb-0">
+                    © 2024 TaxPro Professional Services. All rights reserved.
+                </div>
+                <div class="flex items-center space-x-6 text-sm text-gray-300">
+                    <span>Licensed CPA | IRS Enrolled Agent</span>
+                    <span>•</span>
+                    <span>Serving Clients Nationwide</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scroll to Top Button -->
+    <button onclick="window.scrollTo({top: 0, behavior: 'smooth'})"
+        class="fixed bottom-6 right-6 w-12 h-12 accent-gradient rounded-full flex items-center justify-center text-white shadow-lg hover:shadow-xl transition-all z-40">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+</body>
+
+</html>

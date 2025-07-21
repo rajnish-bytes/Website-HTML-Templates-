@@ -1,0 +1,13 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Start development server",
+			"type": "shell",
+			"command": "cd /home/rajnishkumar/Documents/Website Template/Tax-accounting/tax-pro-nuxt && npm run dev",
+			"group": "build",
+			"isBackground": true,
+			"problemMatcher": []
+		}
+	]
+}

@@ -1,0 +1,122 @@
+/* Global styles from Applight template */
+body {
+  font-family: 'Poppins', sans-serif;
+  font-size: 15px;
+  color: #444;
+  font-weight: 400;
+}
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4 {
+  font-weight: 500;
+  line-height: 1.3;
+  color: #333;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+.white {
+  color: #fff !important;
+}
+
+/* Navbar styles */
+.navbar {
+  position: fixed;
+  right: 0;
+  left: 0;
+  width: 100%;
+  padding: 0;
+  transition: all .5s ease;
+  z-index: 1040;
+}
+
+.nav-scroll {
+  background: #fff;
+  box-shadow: 0 0 30px -5px rgba(0, 0, 0, 0.1);
+}
+
+/* Section Styles */
+.section-padding {
+  padding: 80px 0px;
+}
+
+/* Banner styles */
+.banner {
+  background: #7a60ff;
+  background: linear-gradient(to left, #7a60ff, #cd9ffa);
+  padding: 100px 0px;
+  position: relative;
+}
+
+.banner::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url(/images/pattern.png);
+}
+
+/* Testimonial styles */
+.testimonial {
+  background: #7a60ff;
+  background: linear-gradient(to left, #7a60ff, #cd9ffa);
+  padding: 100px 0px;
+  position: relative;
+}
+
+.testimonial::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url(/images/pattern.png);
+}
+
+/* Download section */
+.download {
+  background: #7a60ff;
+  background: linear-gradient(to left, #7a60ff, #cd9ffa);
+  padding: 100px 0px;
+  position: relative;
+}
+
+.download::before {
+  content: "";
+  display: block;
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background: url(/images/pattern.png);
+}
+
+/* Animation classes for WOW.js */
+.wow {
+  visibility: hidden;
+}
+
+/* Responsive adjustments */
+@media all and (max-width: 991px) {
+  .navbar .navbar-collapse {
+    overflow: auto;
+    background: rgb(213, 198, 221);
+    color: #fff !important;
+    text-align: center;
+    padding: 10px 0;
+  }
+  
+  .banner-text {
+    padding-right: 0px;
+    margin: 50px 0px 0px;
+    text-align: center;
+  }
+}

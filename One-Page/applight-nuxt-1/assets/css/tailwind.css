@@ -1,0 +1,22 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+/* Custom Animations */
+@import 'animate.css';
+/* Custom styles can be added below this line */
+
+/* Example of custom styles */
+.banner {
+    @apply bg-blue-500 text-white py-20;
+}
+
+.footer {
+    @apply bg-gray-800 text-white py-4 text-center;
+}
+
+.header {
+    @apply bg-white shadow-md;
+}
+
+/* Add more custom styles as needed */

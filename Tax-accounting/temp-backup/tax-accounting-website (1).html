@@ -1,0 +1,1296 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tax Planning & Bookkeeping Services</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5.0.35/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'primary': '#E73137',
+                        'secondary': '#1C2752',
+                        'accent': '#FDD835',
+                        'light-pink': '#FFF1F1',
+                        'light-gray': '#F5F5F5',
+                    },
+                    fontFamily: {
+                        'sans': ['Poppins', 'sans-serif'],
+                    }
+                }
+            },
+            daisyui: {
+                themes: [
+                    {
+                        light: {
+                            "primary": "#E73137",
+                            "secondary": "#1C2752",
+                            "accent": "#FDD835",
+                            "neutral": "#F5F5F5",
+                            "base-100": "#ffffff",
+                        }
+                    }
+                ],
+            },
+        }
+    </script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #1C2752 0%, #2A3A6A 100%);
+        }
+
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease-out;
+        }
+
+        .accordion-button.active .accordion-icon {
+            transform: rotate(180deg);
+        }
+    </style>
+</head>
+
+<body class="bg-base-100">
+    <!-- Header/Nav Section -->
+    <div class="drawer">
+        <input id="my-drawer-3" type="checkbox" class="drawer-toggle" />
+        <div class="drawer-content flex flex-col">
+            <!-- Navbar -->
+            <header class="navbar bg-base-100 shadow-md px-4 md:px-8 py-3">
+                <div class="navbar-start">
+                    <div class="flex-none lg:hidden">
+                        <label for="my-drawer-3" aria-label="open sidebar" class="btn btn-square btn-ghost">
+                            <iconify-icon icon="heroicons:bars-3" width="24" height="24"></iconify-icon>
+                        </label>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <iconify-icon icon="mdi:calculator-variant" class="text-primary text-3xl"></iconify-icon>
+                        <div class="text-2xl font-bold text-secondary">TaxPro</div>
+                    </div>
+                </div>
+                <div class="navbar-center hidden lg:flex">
+                    <ul class="menu menu-horizontal px-1 gap-2">
+                        <li><a class="text-secondary hover:text-primary font-medium" href="#">Home</a></li>
+                        <li><a class="text-secondary hover:text-primary font-medium" href="#">Services</a></li>
+                        <li><a class="text-secondary hover:text-primary font-medium" href="#">About</a></li>
+                        <li><a class="text-secondary hover:text-primary font-medium" href="#">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="navbar-end">
+                    <a href="#" class="btn btn-primary btn-sm md:btn-md text-white">Get Started</a>
+                </div>
+            </header>
+        </div>
+        <div class="drawer-side z-40">
+            <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
+            <ul class="menu p-4 w-64 min-h-full bg-base-200 pt-10">
+                <li><a class="text-secondary hover:text-primary font-medium" href="#">Home</a></li>
+                <li><a class="text-secondary hover:text-primary font-medium" href="#">Services</a></li>
+                <li><a class="text-secondary hover:text-primary font-medium" href="#">About</a></li>
+                <li><a class="text-secondary hover:text-primary font-medium" href="#">Contact</a></li>
+                <li class="mt-4"><a href="#" class="btn btn-primary w-full text-white">Get Started</a></li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Hero Section -->
+    <section class="hero min-h-[80vh] bg-gradient-to-r from-light-pink to-base-100 py-12 md:py-20">
+        <div class="hero-content flex-col lg:flex-row-reverse max-w-6xl mx-auto px-4 gap-8">
+            <div class="w-full lg:w-1/2">
+                <!-- Video Placeholder with improved styling -->
+                <div class="relative aspect-video rounded-xl overflow-hidden shadow-2xl">
+                    <div class="absolute inset-0 bg-gradient-to-br from-primary/10 to-secondary/20 backdrop-blur-sm">
+                        <img src="https://images.pexels.com/photos/7821479/pexels-photo-7821479.jpeg" alt="Tax Planning"
+                            class="w-full h-full object-cover opacity-90">
+                    </div>
+                    <div class="absolute inset-0 flex items-center justify-center">
+                        <button class="btn btn-circle btn-lg bg-primary hover:bg-primary/90 border-none text-white">
+                            <iconify-icon icon="solar:play-bold" width="32" height="32"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <div class="w-full lg:w-1/2 text-center lg:text-left">
+                <div class="badge badge-accent mb-4 font-semibold py-3 px-4">TAX EXPERTS SINCE 2010</div>
+                <h1 class="text-3xl md:text-5xl font-bold text-secondary leading-tight">
+                    Keep more of what you <span class="text-primary">earn</span> with expert tax planning
+                </h1>
+                <p class="py-6 text-gray-600 text-lg">
+                    We're a team of certified professionals dedicated to maximizing your profits and minimizing your tax
+                    burden through strategic planning and compliance.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+                    <a href="#" class="btn btn-primary text-white">
+                        Schedule A Consultation
+                        <iconify-icon icon="solar:arrow-right-broken" width="20" height="20"></iconify-icon>
+                    </a>
+                    <a href="#" class="btn btn-outline btn-secondary">
+                        Learn More
+                    </a>
+                </div>
+                <!-- Trust indicators -->
+                <div class="flex flex-wrap gap-4 mt-6 justify-center lg:justify-start">
+                    <div class="flex items-center gap-1">
+                        <iconify-icon icon="solar:star-bold" class="text-accent" width="20" height="20"></iconify-icon>
+                        <span class="text-sm font-medium">4.9/5 Rating</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <iconify-icon icon="solar:shield-check-bold" class="text-primary" width="20"
+                            height="20"></iconify-icon>
+                        <span class="text-sm font-medium">Certified Experts</span>
+                    </div>
+                    <div class="flex items-center gap-1">
+                        <iconify-icon icon="solar:users-group-rounded-bold" class="text-secondary" width="20"
+                            height="20"></iconify-icon>
+                        <span class="text-sm font-medium">1000+ Clients</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Bar -->
+    <section class="py-10 bg-light-gray">
+        <div class="container mx-auto px-4">
+            <p class="text-center text-secondary font-medium mb-6">TRUSTED BY INDUSTRY LEADERS</p>
+            <div class="flex flex-wrap justify-center items-center gap-8 md:gap-12">
+                <div class="grayscale hover:grayscale-0 transition duration-300">
+                    <iconify-icon icon="logos:quickbooks" width="100" height="40"></iconify-icon>
+                </div>
+                <div class="grayscale hover:grayscale-0 transition duration-300">
+                    <iconify-icon icon="logos:xero" width="100" height="40"></iconify-icon>
+                </div>
+                <div class="grayscale hover:grayscale-0 transition duration-300">
+                    <iconify-icon icon="logos:freshbooks" width="100" height="40"></iconify-icon>
+                </div>
+                <div class="grayscale hover:grayscale-0 transition duration-300">
+                    <iconify-icon icon="simple-icons:sage" width="100" height="40"></iconify-icon>
+                </div>
+                <div class="grayscale hover:grayscale-0 transition duration-300">
+                    <iconify-icon icon="logos:turbotax" width="100" height="40"></iconify-icon>
+                </div>
+                <div class="grayscale hover:grayscale-0 transition duration-300">
+                    <iconify-icon icon="simple-icons:wave" width="100" height="40"></iconify-icon>
+                </div>
+            </div>
+            <div class="divider max-w-md mx-auto mt-8"></div>
+            <!-- Stats counter section -->
+            <div class="stats shadow flex flex-col md:flex-row mx-auto max-w-4xl mt-8">
+
+                <div class="stat">
+                    <div class="stat-figure text-primary">
+                        <iconify-icon icon="solar:dollar-minimalistic-bold" width="36" height="36"></iconify-icon>
+                    </div>
+                    <div class="stat-title">Tax Savings</div>
+                    <div class="stat-value text-primary">$300M+</div>
+                    <div class="stat-desc">For our clients</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-figure text-secondary">
+                        <iconify-icon icon="solar:users-group-rounded-bold" width="36" height="36"></iconify-icon>
+                    </div>
+                    <div class="stat-title">Happy Clients</div>
+                    <div class="stat-value text-secondary">1,200+</div>
+                    <div class="stat-desc">Growing every month</div>
+                </div>
+
+                <div class="stat">
+                    <div class="stat-figure text-accent">
+                        <iconify-icon icon="solar:star-bold" width="36" height="36"></iconify-icon>
+                    </div>
+                    <div class="stat-title">Reviews</div>
+                    <div class="stat-value text-accent">4.9</div>
+                    <div class="stat-desc">Out of 5 stars</div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Know How We Do It Section -->
+    <section class="gradient-bg text-white py-10">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-wrap items-center justify-between max-w-5xl mx-auto">
+                <div class="w-full md:w-3/5 mb-4 md:mb-0 flex items-center gap-3">
+                    <div class="hidden md:block">
+                        <iconify-icon icon="solar:lightbulb-bold" width="48" height="48"
+                            class="text-accent"></iconify-icon>
+                    </div>
+                    <div>
+                        <h2 class="text-2xl md:text-3xl font-bold">Want to know how we do it?</h2>
+                        <p class="text-white/80 mt-2">See our proven tax strategies in action</p>
+                    </div>
+                </div>
+                <div class="w-full md:w-auto">
+                    <a href="#" class="btn btn-accent btn-lg text-secondary hover:bg-accent/90 gap-2">
+                        <iconify-icon icon="solar:play-circle-bold" width="24" height="24"></iconify-icon>
+                        Schedule a Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- What We Do Section -->
+    <section class="bg-light-pink py-16 md:py-24">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="badge badge-primary mb-4 text-white font-semibold py-3 px-4">OUR SERVICES</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">What We Do</h2>
+                <div class="flex flex-col gap-1 mb-4">
+                    <h3 class="text-xl md:text-2xl font-bold text-secondary flex items-center justify-center gap-2">
+                        <iconify-icon icon="solar:chart-down-bold" class="text-primary"></iconify-icon>
+                        Reduce your tax burden
+                    </h3>
+                    <h3 class="text-xl md:text-2xl font-bold text-secondary flex items-center justify-center gap-2">
+                        <iconify-icon icon="solar:document-add-bold" class="text-primary"></iconify-icon>
+                        Organize your books
+                    </h3>
+                </div>
+                <p class="text-gray-600 mt-2 max-w-2xl mx-auto text-lg">
+                    Our comprehensive services are designed to help small businesses thrive by providing expert
+                    financial guidance and support.
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Service Card 1 -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/6694543/pexels-photo-6694543.jpeg" alt="Tax Planning"
+                            class="h-56 w-full object-cover" />
+                    </figure>
+                    <div class="card-body">
+                        <div class="badge badge-secondary mb-2">POPULAR</div>
+                        <h3 class="card-title text-secondary">Tax Planning
+                            <iconify-icon icon="solar:document-text-bold" class="text-primary"
+                                width="24"></iconify-icon>
+                        </h3>
+                        <p class="text-gray-600">Strategic tax solutions to minimize your liability and maximize savings
+                            for your business.</p>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-start gap-2">
+                                <iconify-icon icon="solar:check-circle-bold" class="text-primary mt-1"
+                                    width="18"></iconify-icon>
+                                <span>Tax strategy development</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <iconify-icon icon="solar:check-circle-bold" class="text-primary mt-1"
+                                    width="18"></iconify-icon>
+                                <span>Deduction optimization</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <iconify-icon icon="solar:check-circle-bold" class="text-primary mt-1"
+                                    width="18"></iconify-icon>
+                                <span>Business structure planning</span>
+                            </li>
+                        </ul>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-primary btn-outline">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 2 -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/4386366/pexels-photo-4386366.jpeg" alt="Bookkeeping"
+                            class="h-56 w-full object-cover" />
+                    </figure>
+                    <div class="card-body">
+                        <div class="badge badge-primary mb-2 text-white">ESSENTIAL</div>
+                        <h3 class="card-title text-secondary">Bookkeeping
+                            <iconify-icon icon="solar:notebook-bold" class="text-primary" width="24"></iconify-icon>
+                        </h3>
+                        <p class="text-gray-600">Comprehensive financial record-keeping to keep your business organized
+                            and compliant.</p>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-start gap-2">
+                                <iconify-icon icon="solar:check-circle-bold" class="text-primary mt-1"
+                                    width="18"></iconify-icon>
+                                <span>Monthly reconciliation</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <iconify-icon icon="solar:check-circle-bold" class="text-primary mt-1"
+                                    width="18"></iconify-icon>
+                                <span>Financial reporting</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <iconify-icon icon="solar:check-circle-bold" class="text-primary mt-1"
+                                    width="18"></iconify-icon>
+                                <span>Expense tracking</span>
+                            </li>
+                        </ul>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-primary btn-outline">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Service Card 3 -->
+                <div class="card bg-base-100 shadow-xl hover:shadow-2xl transition-all">
+                    <figure>
+                        <img src="https://images.pexels.com/photos/3760067/pexels-photo-3760067.jpeg"
+                            alt="Business Advisory" class="h-56 w-full object-cover" />
+                    </figure>
+                    <div class="card-body">
+                        <div class="badge badge-accent mb-2">GROWTH</div>
+                        <h3 class="card-title text-secondary">Business Advisory
+                            <iconify-icon icon="solar:chart-bold" class="text-primary" width="24"></iconify-icon>
+                        </h3>
+                        <p class="text-gray-600">Expert guidance to help your business grow and succeed financially in
+                            today's market.</p>
+                        <ul class="mt-4 space-y-2">
+                            <li class="flex items-start gap-2">
+                                <iconify-icon icon="solar:check-circle-bold" class="text-primary mt-1"
+                                    width="18"></iconify-icon>
+                                <span>Strategic planning</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <iconify-icon icon="solar:check-circle-bold" class="text-primary mt-1"
+                                    width="18"></iconify-icon>
+                                <span>Cash flow management</span>
+                            </li>
+                            <li class="flex items-start gap-2">
+                                <iconify-icon icon="solar:check-circle-bold" class="text-primary mt-1"
+                                    width="18"></iconify-icon>
+                                <span>Business performance analysis</span>
+                            </li>
+                        </ul>
+                        <div class="card-actions justify-end mt-4">
+                            <button class="btn btn-primary btn-outline">Learn More</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <a href="#" class="btn btn-secondary">
+                    View All Services
+                    <iconify-icon icon="solar:arrow-right-broken" width="20" height="20"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Bookkeeping Services Section -->
+    <section class="py-16 md:py-24 bg-base-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="badge badge-secondary mb-4 text-white font-semibold py-3 px-4">
+                    COMPREHENSIVE SOLUTIONS
+                </div>
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">
+                    Why Choose Our Bookkeeping Services?
+                </h2>
+                <p class="max-w-2xl mx-auto text-gray-600">
+                    Let us handle the numbers so you can focus on growing your business
+                </p>
+            </div>
+
+            <div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Service Item 1 -->
+                <div class="card card-side bg-secondary shadow-xl">
+                    <figure class="p-4">
+                        <div class="w-24 h-24 bg-light-pink rounded-lg flex items-center justify-center">
+                            <iconify-icon icon="solar:clock-circle-bold" width="42" height="42"
+                                class="text-primary"></iconify-icon>
+                        </div>
+                    </figure>
+                    <div class="card-body text-white">
+                        <h3 class="card-title">Save Valuable Time</h3>
+                        <p class="text-gray-200">Spend less time on finances and more time growing your business and
+                            serving your clients.</p>
+                    </div>
+                </div>
+
+                <!-- Service Item 2 -->
+                <div class="card card-side bg-secondary shadow-xl">
+                    <figure class="p-4">
+                        <div class="w-24 h-24 bg-light-pink rounded-lg flex items-center justify-center">
+                            <iconify-icon icon="solar:eye-bold" width="42" height="42"
+                                class="text-primary"></iconify-icon>
+                        </div>
+                    </figure>
+                    <div class="card-body text-white">
+                        <h3 class="card-title">Financial Visibility</h3>
+                        <p class="text-gray-200">Gain clear visibility into your finances and make data-driven business
+                            decisions.</p>
+                    </div>
+                </div>
+
+                <!-- Service Item 3 -->
+                <div class="card card-side bg-secondary shadow-xl">
+                    <figure class="p-4">
+                        <div class="w-24 h-24 bg-light-pink rounded-lg flex items-center justify-center">
+                            <iconify-icon icon="solar:shield-check-bold" width="42" height="42"
+                                class="text-primary"></iconify-icon>
+                        </div>
+                    </figure>
+                    <div class="card-body text-white">
+                        <h3 class="card-title">Compliance & Accuracy</h3>
+                        <p class="text-gray-200">Stay compliant with tax regulations and avoid costly penalties with
+                            accurate record keeping.</p>
+                    </div>
+                </div>
+
+                <!-- Service Item 4 -->
+                <div class="card card-side bg-secondary shadow-xl">
+                    <figure class="p-4">
+                        <div class="w-24 h-24 bg-light-pink rounded-lg flex items-center justify-center">
+                            <iconify-icon icon="solar:settings-bold" width="42" height="42"
+                                class="text-primary"></iconify-icon>
+                        </div>
+                    </figure>
+                    <div class="card-body text-white">
+                        <h3 class="card-title">Process Efficiency</h3>
+                        <p class="text-gray-200">Streamline your financial processes with our modern digital solutions
+                            and increase efficiency.</p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="text-center mt-12">
+                <div class="bg-accent text-secondary p-6 rounded-lg inline-block max-w-3xl">
+                    <div class="flex items-center justify-center gap-3 mb-3">
+                        <iconify-icon icon="solar:lamp-bold" width="32" height="32"></iconify-icon>
+                        <h3 class="text-xl font-bold">Ready to get started?</h3>
+                    </div>
+                    <p class="mb-4">Schedule a free consultation to discuss your bookkeeping needs</p>
+                    <button class="btn btn-secondary">Book a Call</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="py-16 md:py-24 bg-light-gray">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="badge badge-primary mb-4 text-white font-semibold py-3 px-4">TESTIMONIALS</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Client Success Stories</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">
+                    Don't just take our word for it. See what our clients have to say about our services.
+                </p>
+            </div>
+
+            <div class="carousel w-full max-w-5xl mx-auto">
+                <div id="testimonial1" class="carousel-item relative w-full">
+                    <div class="card w-full bg-base-100 shadow-xl">
+                        <div class="card-body text-center">
+                            <div class="avatar mx-auto mb-4">
+                                <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    <img src="https://i.pravatar.cc/150?img=32" alt="Jane Cooper" />
+                                </div>
+                            </div>
+                            <div class="rating mb-4 justify-center">
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                            </div>
+                            <p class="text-gray-600 text-lg italic mb-6">
+                                "Their tax planning strategies saved our business over $45,000 last year alone. The team
+                                is incredibly knowledgeable and responsive. Working with them has been one of the best
+                                business decisions we've made."
+                            </p>
+                            <h4 class="font-bold text-xl">Jane Cooper</h4>
+                            <p class="text-gray-500">Small Business Owner, Cooper Design</p>
+                        </div>
+                    </div>
+                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#testimonial3" class="btn btn-circle">❮</a>
+                        <a href="#testimonial2" class="btn btn-circle">❯</a>
+                    </div>
+                </div>
+                <div id="testimonial2" class="carousel-item relative w-full">
+                    <div class="card w-full bg-base-100 shadow-xl">
+                        <div class="card-body text-center">
+                            <div class="avatar mx-auto mb-4">
+                                <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    <img src="https://i.pravatar.cc/150?img=60" alt="Michael Brown" />
+                                </div>
+                            </div>
+                            <div class="rating mb-4 justify-center">
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                            </div>
+                            <p class="text-gray-600 text-lg italic mb-6">
+                                "The bookkeeping service has been a game-changer for our startup. We now have complete
+                                visibility into our finances, which has enabled us to make better strategic decisions.
+                                Their team is prompt, accurate, and a joy to work with."
+                            </p>
+                            <h4 class="font-bold text-xl">Michael Brown</h4>
+                            <p class="text-gray-500">Startup Founder, TechLaunch</p>
+                        </div>
+                    </div>
+                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#testimonial1" class="btn btn-circle">❮</a>
+                        <a href="#testimonial3" class="btn btn-circle">❯</a>
+                    </div>
+                </div>
+                <div id="testimonial3" class="carousel-item relative w-full">
+                    <div class="card w-full bg-base-100 shadow-xl">
+                        <div class="card-body text-center">
+                            <div class="avatar mx-auto mb-4">
+                                <div class="w-24 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                    <img src="https://i.pravatar.cc/150?img=5" alt="Sarah Johnson" />
+                                </div>
+                            </div>
+                            <div class="rating mb-4 justify-center">
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                                <iconify-icon icon="solar:star-bold" class="text-accent" width="20"
+                                    height="20"></iconify-icon>
+                            </div>
+                            <p class="text-gray-600 text-lg italic mb-6">
+                                "Professional, responsive, and incredibly knowledgeable. Their team helped me navigate
+                                complex tax situations as my e-commerce business expanded internationally. I'm so glad I
+                                found them for my business needs."
+                            </p>
+                            <h4 class="font-bold text-xl">Sarah Johnson</h4>
+                            <p class="text-gray-500">E-commerce Owner, Bloom Boutique</p>
+                        </div>
+                    </div>
+                    <div class="absolute flex justify-between transform -translate-y-1/2 left-5 right-5 top-1/2">
+                        <a href="#testimonial2" class="btn btn-circle">❮</a>
+                        <a href="#testimonial1" class="btn btn-circle">❯</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="flex justify-center mt-8">
+                <div class="join">
+                    <a href="#testimonial1" class="join-item btn btn-sm">1</a>
+                    <a href="#testimonial2" class="join-item btn btn-sm">2</a>
+                    <a href="#testimonial3" class="join-item btn btn-sm">3</a>
+                </div>
+            </div>
+
+            <div class="text-center mt-10">
+                <a href="#" class="btn btn-primary btn-lg text-white gap-2">
+                    See More Success Stories
+                    <iconify-icon icon="solar:arrow-right-broken" width="20" height="20"></iconify-icon>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-16 bg-gradient-to-r from-secondary to-secondary/80 text-white">
+        <div class="container mx-auto px-4">
+            <div class="max-w-5xl mx-auto flex flex-col md:flex-row items-center justify-between gap-8">
+                <div class="md:w-2/3">
+                    <div class="badge badge-accent mb-4 text-secondary font-semibold py-3 px-4">FREE CONSULTATION</div>
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">Ready to optimize your tax strategy?</h2>
+                    <p class="text-white/80 text-lg mb-6">
+                        Schedule a no-obligation consultation with our tax experts to discover how we can help your
+                        business save money and stay compliant.
+                    </p>
+                    <div class="flex flex-wrap gap-4">
+                        <div class="flex items-center gap-2">
+                            <iconify-icon icon="solar:check-circle-bold" class="text-accent" width="24"
+                                height="24"></iconify-icon>
+                            <span>30-minute free consultation</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <iconify-icon icon="solar:check-circle-bold" class="text-accent" width="24"
+                                height="24"></iconify-icon>
+                            <span>Personalized tax assessment</span>
+                        </div>
+                        <div class="flex items-center gap-2">
+                            <iconify-icon icon="solar:check-circle-bold" class="text-accent" width="24"
+                                height="24"></iconify-icon>
+                            <span>No obligation</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="md:w-1/3">
+                    <div class="card bg-base-100 shadow-xl">
+                        <div class="card-body">
+                            <h3 class="card-title text-secondary">Book Your Call</h3>
+                            <p class="text-gray-600">Select a convenient time for your consultation</p>
+                            <div class="flex justify-center my-4">
+                                <div class="join join-vertical">
+                                    <button class="btn join-item">Today</button>
+                                    <button class="btn join-item btn-active">Tomorrow</button>
+                                    <button class="btn join-item">Next Week</button>
+                                </div>
+                            </div>
+                            <div class="card-actions">
+                                <button class="btn btn-primary w-full text-white">
+                                    <iconify-icon icon="solar:calendar-mark-bold" width="20" height="20"></iconify-icon>
+                                    Schedule Now
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Meet the Expert Section -->
+    <section class="py-16 md:py-24 bg-base-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="badge badge-secondary mb-4 text-white font-semibold py-3 px-4">LEADERSHIP</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Meet Your Expert</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">
+                    Work directly with industry-leading tax professionals
+                </p>
+            </div>
+
+            <div class="card lg:card-side bg-base-100 shadow-xl max-w-6xl mx-auto">
+                <figure class="lg:w-2/5">
+                    <img src="https://images.pexels.com/photos/5669788/pexels-photo-5669788.jpeg" alt="Shaan Rizvi"
+                        class="h-full w-full object-cover" />
+                </figure>
+                <div class="card-body lg:w-3/5">
+                    <div class="flex items-center gap-4 mb-4">
+                        <div class="avatar">
+                            <div class="w-16 rounded-full ring ring-primary ring-offset-base-100 ring-offset-2">
+                                <img src="https://i.pravatar.cc/150?img=33" alt="Shaan Rizvi" />
+                            </div>
+                        </div>
+                        <div>
+                            <h3 class="card-title text-2xl md:text-3xl font-bold text-secondary">Shaan Rizvi</h3>
+                            <div class="badge badge-primary text-white py-1 px-3">
+                                TAX EXPERT & BUSINESS ADVISOR
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="divider"></div>
+
+                    <p class="text-gray-600 text-lg mb-6">
+                        With over 10 years in tax planning, I help clients maximize deductions and minimize
+                        tax liabilities through strategic planning and compliance. My mission is to ensure
+                        small business owners keep more of what they earn.
+                    </p>
+
+                    <div class="stats stats-vertical lg:stats-horizontal shadow">
+                        <div class="stat">
+                            <div class="stat-title">Clients</div>
+                            <div class="stat-value text-primary">1,000+</div>
+                            <div class="stat-desc">Businesses helped</div>
+                        </div>
+
+                        <div class="stat">
+                            <div class="stat-title">Savings</div>
+                            <div class="stat-value text-secondary">$300M+</div>
+                            <div class="stat-desc">Tax savings generated</div>
+                        </div>
+
+                        <div class="stat">
+                            <div class="stat-title">Experience</div>
+                            <div class="stat-value text-accent">10+ yrs</div>
+                            <div class="stat-desc">Industry expertise</div>
+                        </div>
+                    </div>
+
+                    <ul class="space-y-3 text-gray-600 mt-6">
+                        <li class="flex items-start gap-2">
+                            <iconify-icon icon="solar:check-circle-bold" class="text-primary mt-1"
+                                width="20"></iconify-icon>
+                            <span>Certified Public Accountant (CPA)</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <iconify-icon icon="solar:check-circle-bold" class="text-primary mt-1"
+                                width="20"></iconify-icon>
+                            <span>Master's in Taxation from NYU</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <iconify-icon icon="solar:check-circle-bold" class="text-primary mt-1"
+                                width="20"></iconify-icon>
+                            <span>Specializing in small business tax strategies</span>
+                        </li>
+                        <li class="flex items-start gap-2">
+                            <iconify-icon icon="solar:check-circle-bold" class="text-primary mt-1"
+                                width="20"></iconify-icon>
+                            <span>Former advisor for Fortune 500 companies</span>
+                        </li>
+                    </ul>
+
+                    <div class="card-actions mt-6">
+                        <button class="btn btn-primary text-white gap-2">
+                            <iconify-icon icon="solar:user-speak-bold" width="20" height="20"></iconify-icon>
+                            Schedule a Meeting
+                        </button>
+                        <button class="btn btn-outline btn-secondary gap-2">
+                            <iconify-icon icon="solar:notebook-bold" width="20" height="20"></iconify-icon>
+                            View Credentials
+                        </button>
+                    </div>
+
+                    <div class="flex gap-4 mt-6">
+                        <button class="btn btn-circle btn-sm btn-outline">
+                            <iconify-icon icon="logos:linkedin-icon" width="20" height="20"></iconify-icon>
+                        </button>
+                        <button class="btn btn-circle btn-sm btn-outline">
+                            <iconify-icon icon="logos:twitter" width="20" height="20"></iconify-icon>
+                        </button>
+                        <button class="btn btn-circle btn-sm btn-outline">
+                            <iconify-icon icon="solar:letter-bold" width="20" height="20"></iconify-icon>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5 Step Process Section -->
+    <section class="py-16 md:py-24 bg-light-gray">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="badge badge-primary mb-4 text-white font-semibold py-3 px-4">OUR PROCESS</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">5 Steps to Financial Success</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">
+                    Our streamlined process ensures a smooth experience from start to finish
+                </p>
+            </div>
+
+            <div class="max-w-6xl mx-auto">
+                <ul class="timeline timeline-vertical md:timeline-horizontal">
+                    <!-- Step 1 -->
+                    <li>
+                        <div class="timeline-start text-secondary">Step 1</div>
+                        <div class="timeline-middle">
+                            <div class="badge badge-primary text-white w-12 h-12 rounded-full">1</div>
+                        </div>
+                        <div class="timeline-end timeline-box">
+                            <div class="flex flex-col items-center md:items-start">
+                                <iconify-icon icon="solar:call-speaking-bold" class="text-primary mb-2" width="32"
+                                    height="32"></iconify-icon>
+                                <h3 class="font-bold text-lg text-secondary">Discovery Call</h3>
+                                <p class="text-gray-600 text-center md:text-left">
+                                    We'll discuss your business needs and goals during a free consultation.
+                                </p>
+                            </div>
+                        </div>
+                        <hr class="hidden md:block bg-primary" />
+                    </li>
+
+                    <!-- Step 2 -->
+                    <li>
+                        <hr class="hidden md:block bg-primary" />
+                        <div class="timeline-start text-secondary">Step 2</div>
+                        <div class="timeline-middle">
+                            <div class="badge badge-primary text-white w-12 h-12 rounded-full">2</div>
+                        </div>
+                        <div class="timeline-end timeline-box">
+                            <div class="flex flex-col items-center md:items-start">
+                                <iconify-icon icon="solar:document-text-bold" class="text-primary mb-2" width="32"
+                                    height="32"></iconify-icon>
+                                <h3 class="font-bold text-lg text-secondary">Assessment</h3>
+                                <p class="text-gray-600 text-center md:text-left">
+                                    We'll review your financial documents and identify opportunities.
+                                </p>
+                            </div>
+                        </div>
+                        <hr class="hidden md:block bg-primary" />
+                    </li>
+
+                    <!-- Step 3 -->
+                    <li>
+                        <hr class="hidden md:block bg-primary" />
+                        <div class="timeline-start text-secondary">Step 3</div>
+                        <div class="timeline-middle">
+                            <div class="badge badge-primary text-white w-12 h-12 rounded-full">3</div>
+                        </div>
+                        <div class="timeline-end timeline-box">
+                            <div class="flex flex-col items-center md:items-start">
+                                <iconify-icon icon="solar:document-add-bold" class="text-primary mb-2" width="32"
+                                    height="32"></iconify-icon>
+                                <h3 class="font-bold text-lg text-secondary">Proposal</h3>
+                                <p class="text-gray-600 text-center md:text-left">
+                                    We'll present a tailored strategy and service package for your needs.
+                                </p>
+                            </div>
+                        </div>
+                        <hr class="hidden md:block bg-primary" />
+                    </li>
+
+                    <!-- Step 4 -->
+                    <li>
+                        <hr class="hidden md:block bg-primary" />
+                        <div class="timeline-start text-secondary">Step 4</div>
+                        <div class="timeline-middle">
+                            <div class="badge badge-primary text-white w-12 h-12 rounded-full">4</div>
+                        </div>
+                        <div class="timeline-end timeline-box">
+                            <div class="flex flex-col items-center md:items-start">
+                                <iconify-icon icon="solar:user-check-bold" class="text-primary mb-2" width="32"
+                                    height="32"></iconify-icon>
+                                <h3 class="font-bold text-lg text-secondary">Onboarding</h3>
+                                <p class="text-gray-600 text-center md:text-left">
+                                    We'll set up your account and gather necessary information to begin.
+                                </p>
+                            </div>
+                        </div>
+                        <hr class="hidden md:block bg-primary" />
+                    </li>
+
+                    <!-- Step 5 -->
+                    <li>
+                        <hr class="hidden md:block bg-primary" />
+                        <div class="timeline-start text-secondary">Step 5</div>
+                        <div class="timeline-middle">
+                            <div class="badge badge-primary text-white w-12 h-12 rounded-full">5</div>
+                        </div>
+                        <div class="timeline-end timeline-box">
+                            <div class="flex flex-col items-center md:items-start">
+                                <iconify-icon icon="solar:rocket-bold" class="text-primary mb-2" width="32"
+                                    height="32"></iconify-icon>
+                                <h3 class="font-bold text-lg text-secondary">Execution</h3>
+                                <p class="text-gray-600 text-center md:text-left">
+                                    We'll implement your tax strategy and provide ongoing support.
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="text-center mt-12">
+                <button class="btn btn-primary btn-lg text-white gap-2">
+                    Start Your Journey
+                    <iconify-icon icon="solar:arrow-right-broken" width="20" height="20"></iconify-icon>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Form Section -->
+    <section class="py-16 md:py-24 bg-gradient-to-r from-light-pink to-base-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="badge badge-secondary mb-4 text-white font-semibold py-3 px-4">GET STARTED</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Tell Us About Your Business</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">
+                    Help us understand your needs so we can provide the most relevant tax solutions
+                </p>
+            </div>
+
+            <div class="max-w-4xl mx-auto">
+                <div class="card bg-base-100 shadow-xl">
+                    <div class="card-body p-6 md:p-10">
+                        <div class="flex justify-center mb-6">
+                            <ul class="steps steps-horizontal w-full">
+                                <li class="step step-primary">Business Type</li>
+                                <li class="step">Details</li>
+                                <li class="step">Goals</li>
+                                <li class="step">Contact</li>
+                            </ul>
+                        </div>
+
+                        <form>
+                            <div class="mb-6">
+                                <label class="form-control w-full">
+                                    <div class="label">
+                                        <span class="label-text text-lg font-medium text-secondary">Which of the below
+                                            describes you best?</span>
+                                    </div>
+                                    <div class="label">
+                                        <span class="label-text-alt text-gray-500">Our experts will tailor solutions
+                                            based on your business type</span>
+                                    </div>
+                                </label>
+
+                                <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mt-4">
+                                    <label
+                                        class="label cursor-pointer bg-base-200 rounded-lg p-4 hover:bg-base-300 transition-all border-2 border-transparent hover:border-primary">
+                                        <div class="flex items-start gap-3">
+                                            <input type="radio" name="business-type" class="radio radio-primary"
+                                                value="agency" />
+                                            <div>
+                                                <span class="label-text text-base font-medium">Agency Owner</span>
+                                                <p class="text-xs text-gray-500 mt-1">Marketing, design, or development
+                                                    agency</p>
+                                            </div>
+                                        </div>
+                                    </label>
+
+                                    <label
+                                        class="label cursor-pointer bg-base-200 rounded-lg p-4 hover:bg-base-300 transition-all border-2 border-transparent hover:border-primary">
+                                        <div class="flex items-start gap-3">
+                                            <input type="radio" name="business-type" class="radio radio-primary"
+                                                value="influencer" />
+                                            <div>
+                                                <span class="label-text text-base font-medium">Influencer/Content
+                                                    Creator</span>
+                                                <p class="text-xs text-gray-500 mt-1">Social media, YouTube, blogging
+                                                </p>
+                                            </div>
+                                        </div>
+                                    </label>
+
+                                    <label
+                                        class="label cursor-pointer bg-base-200 rounded-lg p-4 hover:bg-base-300 transition-all border-2 border-transparent hover:border-primary">
+                                        <div class="flex items-start gap-3">
+                                            <input type="radio" name="business-type" class="radio radio-primary"
+                                                value="consultant" />
+                                            <div>
+                                                <span class="label-text text-base font-medium">Coach/Consultant</span>
+                                                <p class="text-xs text-gray-500 mt-1">Business, life, or specialized
+                                                    coaching</p>
+                                            </div>
+                                        </div>
+                                    </label>
+
+                                    <label
+                                        class="label cursor-pointer bg-base-200 rounded-lg p-4 hover:bg-base-300 transition-all border-2 border-transparent hover:border-primary">
+                                        <div class="flex items-start gap-3">
+                                            <input type="radio" name="business-type" class="radio radio-primary"
+                                                value="freelancer" />
+                                            <div>
+                                                <span class="label-text text-base font-medium">Freelancer</span>
+                                                <p class="text-xs text-gray-500 mt-1">Independent contractor or gig
+                                                    worker</p>
+                                            </div>
+                                        </div>
+                                    </label>
+
+                                    <label
+                                        class="label cursor-pointer bg-base-200 rounded-lg p-4 hover:bg-base-300 transition-all border-2 border-transparent hover:border-primary">
+                                        <div class="flex items-start gap-3">
+                                            <input type="radio" name="business-type" class="radio radio-primary"
+                                                value="tech-founder" />
+                                            <div>
+                                                <span class="label-text text-base font-medium">Tech Founder</span>
+                                                <p class="text-xs text-gray-500 mt-1">Startup or established tech
+                                                    company</p>
+                                            </div>
+                                        </div>
+                                    </label>
+
+                                    <label
+                                        class="label cursor-pointer bg-base-200 rounded-lg p-4 hover:bg-base-300 transition-all border-2 border-transparent hover:border-primary">
+                                        <div class="flex items-start gap-3">
+                                            <input type="radio" name="business-type" class="radio radio-primary"
+                                                value="w2" />
+                                            <div>
+                                                <span class="label-text text-base font-medium">W2 Employee</span>
+                                                <p class="text-xs text-gray-500 mt-1">Full-time employee with side
+                                                    business</p>
+                                            </div>
+                                        </div>
+                                    </label>
+                                </div>
+
+                                <label
+                                    class="label cursor-pointer bg-base-200 rounded-lg p-4 hover:bg-base-300 transition-all mt-4 border-2 border-transparent hover:border-primary">
+                                    <div class="flex items-start gap-3">
+                                        <input type="radio" name="business-type" class="radio radio-primary"
+                                            value="other" />
+                                        <div>
+                                            <span class="label-text text-base font-medium">Other</span>
+                                            <p class="text-xs text-gray-500 mt-1">Not listed above? Tell us about your
+                                                business</p>
+                                        </div>
+                                    </div>
+                                </label>
+                            </div>
+
+                            <div class="flex justify-between items-center mt-8">
+                                <button type="button" class="btn btn-outline btn-secondary">
+                                    <iconify-icon icon="solar:arrow-left-broken" width="20" height="20"></iconify-icon>
+                                    Back
+                                </button>
+
+                                <span class="badge badge-neutral px-4 py-3">Step 1 of 4</span>
+
+                                <button type="button" class="btn btn-primary text-white">
+                                    Next
+                                    <iconify-icon icon="solar:arrow-right-broken" width="20" height="20"></iconify-icon>
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="mt-8 text-center text-gray-600">
+                    <div class="flex items-center justify-center gap-2 mb-2">
+                        <iconify-icon icon="solar:shield-check-bold" width="20" height="20"
+                            class="text-secondary"></iconify-icon>
+                        <span class="text-sm">Your information is secure and protected</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 md:py-24 bg-base-100">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <div class="badge badge-accent mb-4 text-secondary font-semibold py-3 px-4">FAQ</div>
+                <h2 class="text-3xl md:text-4xl font-bold text-secondary mb-4">Frequently Asked Questions</h2>
+                <p class="max-w-2xl mx-auto text-gray-600">
+                    Find answers to common questions about our services
+                </p>
+            </div>
+
+            <div class="max-w-3xl mx-auto">
+                <div class="join join-vertical w-full">
+                    <!-- FAQ Item 1 -->
+                    <div class="collapse collapse-arrow join-item border border-base-200">
+                        <input type="radio" name="faq-accordion" checked />
+                        <div class="collapse-title text-lg font-medium text-secondary flex items-center gap-3">
+                            <iconify-icon icon="solar:dollar-minimalistic-bold" class="text-primary" width="24"
+                                height="24"></iconify-icon>
+                            Is the initial consultation free?
+                        </div>
+                        <div class="collapse-content bg-base-100">
+                            <p class="py-2 text-gray-600">
+                                Yes, we offer a complimentary 30-minute consultation to assess your needs and determine
+                                how we can best help your business. During this session, we'll discuss your financial
+                                goals and challenges, and provide initial recommendations.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 2 -->
+                    <div class="collapse collapse-arrow join-item border border-base-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-lg font-medium text-secondary flex items-center gap-3">
+                            <iconify-icon icon="solar:users-group-rounded-bold" class="text-primary" width="24"
+                                height="24"></iconify-icon>
+                            Who are your services designed for?
+                        </div>
+                        <div class="collapse-content bg-base-100">
+                            <p class="py-2 text-gray-600">
+                                Our services are designed for small business owners, entrepreneurs, freelancers, and
+                                self-employed professionals who want to optimize their tax situation and maintain
+                                organized financial records. We specialize in working with:
+                            </p>
+                            <ul class="list-disc list-inside text-gray-600 mt-2 space-y-1">
+                                <li>Digital service businesses</li>
+                                <li>E-commerce and retail operations</li>
+                                <li>Professional service providers</li>
+                                <li>Real estate investors</li>
+                                <li>Startups and growing businesses</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 3 -->
+                    <div class="collapse collapse-arrow join-item border border-base-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-lg font-medium text-secondary flex items-center gap-3">
+                            <iconify-icon icon="solar:notebook-bold" class="text-primary" width="24"
+                                height="24"></iconify-icon>
+                            How do I get started with your services?
+                        </div>
+                        <div class="collapse-content bg-base-100">
+                            <p class="py-2 text-gray-600">
+                                You can get started by filling out the form on this page or by clicking the "Book a
+                                Call" button to schedule a consultation with our team. After your initial consultation,
+                                we'll provide a customized proposal based on your specific needs and goals.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 4 -->
+                    <div class="collapse collapse-arrow join-item border border-base-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-lg font-medium text-secondary flex items-center gap-3">
+                            <iconify-icon icon="solar:chat-round-dots-bold" class="text-primary" width="24"
+                                height="24"></iconify-icon>
+                            Can I ask questions during consultations?
+                        </div>
+                        <div class="collapse-content bg-base-100">
+                            <p class="py-2 text-gray-600">
+                                Absolutely! We encourage questions during your consultation and throughout our working
+                                relationship. Our goal is to help you understand your financial situation and the
+                                strategies we recommend. We believe in transparent communication and ensuring you're
+                                comfortable with all aspects of our services.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 5 -->
+                    <div class="collapse collapse-arrow join-item border border-base-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-lg font-medium text-secondary flex items-center gap-3">
+                            <iconify-icon icon="solar:document-text-bold" class="text-primary" width="24"
+                                height="24"></iconify-icon>
+                            Do I need financial experience to work with you?
+                        </div>
+                        <div class="collapse-content bg-base-100">
+                            <p class="py-2 text-gray-600">
+                                No experience is necessary. We work with clients at all levels of financial knowledge
+                                and customize our approach to meet your specific needs and comfort level. Our experts
+                                will explain everything in clear, simple terms and guide you through the entire process.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 6 -->
+                    <div class="collapse collapse-arrow join-item border border-base-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-lg font-medium text-secondary flex items-center gap-3">
+                            <iconify-icon icon="solar:users-group-two-rounded-bold" class="text-primary" width="24"
+                                height="24"></iconify-icon>
+                            Can I involve business partners in the process?
+                        </div>
+                        <div class="collapse-content bg-base-100">
+                            <p class="py-2 text-gray-600">
+                                We typically work one-on-one with clients to provide personalized service. However, for
+                                business partnerships or companies with multiple stakeholders, we can accommodate group
+                                consultations. If you'd like to refer a friend or business partner to our services,
+                                we're happy to arrange separate consultations for them.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- FAQ Item 7 -->
+                    <div class="collapse collapse-arrow join-item border border-base-200">
+                        <input type="radio" name="faq-accordion" />
+                        <div class="collapse-title text-lg font-medium text-secondary flex items-center gap-3">
+                            <iconify-icon icon="solar:videocamera-record-bold" class="text-primary" width="24"
+                                height="24"></iconify-icon>
+                            Are consultation sessions recorded?
+                        </div>
+                        <div class="collapse-content bg-base-100">
+                            <p class="py-2 text-gray-600">
+                                With your permission, we can record consultation calls and strategy sessions for your
+                                future reference. This helps ensure you have access to all the information and advice
+                                provided during our discussions. All recordings are kept confidential and securely
+                                stored in compliance with privacy regulations.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center mt-12">
+                    <div class="p-6 bg-secondary/10 rounded-lg">
+                        <h3 class="text-xl font-bold text-secondary mb-2">Still have questions?</h3>
+                        <p class="text-gray-600 mb-4">Contact our support team for personalized assistance</p>
+                        <button class="btn btn-primary text-white gap-2">
+                            <iconify-icon icon="solar:chat-round-dots-bold" width="20" height="20"></iconify-icon>
+                            Contact Support
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-secondary text-white">
+        <div class="footer p-10 container mx-auto">
+            <div>
+                <div class="flex items-center gap-2 mb-4">
+                    <iconify-icon icon="mdi:calculator-variant" class="text-primary text-3xl"></iconify-icon>
+                    <div class="text-2xl font-bold text-white">TaxPro</div>
+                </div>
+                <p class="max-w-xs">Expert tax planning and bookkeeping services to help your business thrive
+                    financially.</p>
+                <div class="flex gap-4 mt-4">
+                    <a href="#"
+                        class="btn btn-circle btn-sm btn-outline border-white hover:bg-primary hover:border-primary">
+                        <iconify-icon icon="logos:facebook" width="20" height="20"></iconify-icon>
+                    </a>
+                    <a href="#"
+                        class="btn btn-circle btn-sm btn-outline border-white hover:bg-primary hover:border-primary">
+                        <iconify-icon icon="logos:twitter" width="20" height="20"></iconify-icon>
+                    </a>
+                    <a href="#"
+                        class="btn btn-circle btn-sm btn-outline border-white hover:bg-primary hover:border-primary">
+                        <iconify-icon icon="logos:linkedin-icon" width="20" height="20"></iconify-icon>
+                    </a>
+                    <a href="#"
+                        class="btn btn-circle btn-sm btn-outline border-white hover:bg-primary hover:border-primary">
+                        <iconify-icon icon="logos:instagram-icon" width="20" height="20"></iconify-icon>
+                    </a>
+                </div>
+            </div>
+            <div>
+                <span class="footer-title opacity-100">Services</span>
+                <a class="link link-hover">Tax Planning</a>
+                <a class="link link-hover">Bookkeeping</a>
+                <a class="link link-hover">Business Advisory</a>
+                <a class="link link-hover">Financial Reporting</a>
+                <a class="link link-hover">Tax Preparation</a>
+            </div>
+            <div>
+                <span class="footer-title opacity-100">Company</span>
+                <a class="link link-hover">About Us</a>
+                <a class="link link-hover">Our Team</a>
+                <a class="link link-hover">Testimonials</a>
+                <a class="link link-hover">Careers</a>
+                <a class="link link-hover">Press</a>
+            </div>
+            <div>
+                <span class="footer-title opacity-100">Contact</span>
+                <div class="flex items-center gap-2">
+                    <iconify-icon icon="solar:phone-bold" class="text-primary" width="16"></iconify-icon>
+                    <span>(555) 123-4567</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <iconify-icon icon="solar:letter-bold" class="text-primary" width="16"></iconify-icon>
+                    <span>info@taxpro.com</span>
+                </div>
+                <div class="flex items-center gap-2">
+                    <iconify-icon icon="solar:map-point-bold" class="text-primary" width="16"></iconify-icon>
+                    <span>123 Financial St, Suite 100<br />New York, NY 10001</span>
+                </div>
+                <form class="mt-4">
+                    <div class="join">
+                        <input class="input input-bordered join-item" placeholder="Email Address" />
+                        <button
+                            class="btn join-item bg-primary border-primary hover:bg-primary/90 text-white">Subscribe</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="footer footer-center p-4 border-t border-white/20">
+            <div>
+                <p>Copyright © 2025 TaxPro | All Rights Reserved</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Ensure DaisyUI collapse functionality works without additional JS
+            console.log('TaxPro website loaded successfully');
+        });
+    </script>
+</body>
+
+</html>
